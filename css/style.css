@@ -4,3 +4,8 @@
 .contactButton {
     text-align: center;
 }
+
+/* Changes the contact form labels to bold */
+.contactLabel {
+    font-weight: bold;
+}
