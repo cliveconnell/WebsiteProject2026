@@ -42,26 +42,37 @@
 
         <!-- Changed the background colour of the form to match the site-->
         <div class="bg-success-subtle mt-3">
-            <form class="m-3">
+            <form id="contactForm" class="m-3">
                 <h4 class="text-center">Contact us</h4>
+                <!-- Form is valid show a success message -->
+                <p class="bg-success text-white" id="successMessage"></p>
+                <!-- Warning message for invalid field -->
+                <p class="bg-danger text-white" id="firstNameWarning"></p>
                 <!-- Form field for entering first name with a placeholder to help users-->
                 <div class="m-3">
                     <label for="firstName" class="form-label contactLabel">First Name</label>
                     <input type="text" class="form-control" id="firstName" placeholder="Enter First Name">
                 </div>
 
+                <!-- Warning message for invalid field -->
+                <p class="bg-danger text-white" id="surnameWarning"></p>
                 <!-- Form field for entering surname with a placeholder to help users-->
                 <div class="m-3">
                     <label for="surname" class="form-label contactLabel">Surname</label>
                     <input type="text" class="form-control" id="surname" placeholder="Enter Surname">
                 </div>
 
+                <!-- Warning message for invalid field -->
+                <p class="bg-danger text-white" id="emailWarning"></p>
                 <!-- Form field for entering email with a placeholder to help users-->
                 <div class="m-3">
                     <label for="email" class="form-label contactLabel">Email</label>
-                    <input type="email" class="form-control" id="email" placeholder="Email@emailaddress.com">
+                    <!-- Using input text instead of email due to html validation (This way it will show js validation) -->
+                    <input type="text" class="form-control" id="email" placeholder="Email@emailaddress.com">
                 </div>
 
+                <!-- Warning message for invalid field -->
+                <p class="bg-danger text-white" id="descWarning"></p>
                 <!-- Form field for entering description with a placeholder to help users-->
                 <div class="m-3">
                     <label for="contactReason" class="form-label contactLabel">Description</label>
@@ -96,6 +107,9 @@
                 <p class="card-text mb-1">Developed by Clive (G00484437@atu.ie) & Keith (G00234644@atu.ie)</p>
                 <p class="card-text mb-0">Website Project 2026</p>
             </div>
+
+            <!-- Link to external JS file -->
+            <script src="js/contactUs.js"></script>
 </body>
 
 </html>
