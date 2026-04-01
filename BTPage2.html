@@ -38,11 +38,43 @@
                 </div>
             </div>
         </nav>
-        <div class="container bg-warning">
-            This is a div for page 2 content
+
+        <div class="bg-success-subtle mt-3">
+            <form class="m-3">
+                <h4 class="text-center">Add Transaction</h4>
+                <!-- Form field for entering description of budget item with a placeholder to help users-->
+                <div class="m-3">
+                    <label for="description" class="form-label inputBudgetLabel">Description</label>
+                    <textarea type="text" class="form-control" id="firstName" placeholder="Enter Description"
+                        rows="1"></textarea>
+                </div>
+
+                <!-- Form field for entering amount for the budget item with a placeholder to help users-->
+                <div class="m-3">
+                    <label for="amount" class="form-label inputBudgetLabel">Amount</label>
+                    <input type="number" class="form-control" id="firstName" placeholder="Enter Amount">
+                </div>
+
+                <!-- Form field for selecting either income or expense with a placeholder to help users-->
+                <div class="m-3">
+                    <label for="type" class="form-label inputBudgetLabel">Type</label>
+                    <!-- Sets "Select Type" as the default value but not let it be selected as an option and require income/expense -->
+                    <select class="form-select" id="type" required>
+                        <option value="" selected>Select Type</option>
+                        <option value="income">Income</option>
+                        <option value="expense">Expense</option>
+                    </select>
+                </div>
+
+
+                <!-- Using style.css to center the submit button -->
+                <div class="inputBudgetButton">
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </div>
+                <br>
+            </form>
         </div>
-
-
+        
         <!-- Footer for every page for easy linkage to pages and information -->
         <div class="card bg-success-subtle mt-3">
             <div class="card-body text-center">

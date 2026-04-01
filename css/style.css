@@ -9,3 +9,13 @@
 .contactLabel {
     font-weight: bold;
 }
+
+/* Changes the input budget form labels to bold */
+.inputBudgetLabel {
+    font-weight: bold
+}
+
+/* Centers the input budget form submit button */
+.inputBudgetButton {
+    text-align: center;
+}
