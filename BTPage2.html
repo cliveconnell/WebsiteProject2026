@@ -40,26 +40,34 @@
         </nav>
 
         <div class="bg-success-subtle mt-3">
-            <form class="m-3">
+            <form class="m-3" id="budgetForm">
                 <h4 class="text-center">Add Transaction</h4>
+                <!-- Form is valid show a success message -->
+                <p class="bg-success text-white" id="successMessage"></p>
+                <!-- Warning message for invalid field -->
+                <p class="bg-danger text-white" id="descWarning"></p>
                 <!-- Form field for entering description of budget item with a placeholder to help users-->
                 <div class="m-3">
                     <label for="description" class="form-label inputBudgetLabel">Description</label>
                     <textarea type="text" class="form-control" id="description" placeholder="Enter Description"
-                        rows="1" required></textarea>
+                        rows="1"></textarea>
                 </div>
 
+                <!-- Warning message for invalid field -->
+                <p class="bg-danger text-white" id="amountWarning"></p>
                 <!-- Form field for entering amount for the budget item with a placeholder to help users-->
                 <div class="m-3">
                     <label for="amount" class="form-label inputBudgetLabel">Amount</label>
-                    <input type="number" class="form-control" id="amount" placeholder="Enter Amount" required>
+                    <input type="number" class="form-control" id="amount" placeholder="Enter Amount">
                 </div>
 
+                <!-- Warning message for invalid field -->
+                <p class="bg-danger text-white" id="typeWarning"></p>
                 <!-- Form field for selecting either income or expense with a placeholder to help users-->
                 <div class="m-3">
                     <label for="type" class="form-label inputBudgetLabel">Type</label>
                     <!-- Sets "Select Type" as the default value but not let it be selected as an option and require income/expense -->
-                    <select class="form-select" id="type" required>
+                    <select class="form-select" id="type">
                         <option value="" selected>Select Type</option>
                         <option value="income">Income</option>
                         <option value="expense">Expense</option>
@@ -74,7 +82,7 @@
                 <br>
             </form>
         </div>
-        
+
         <!-- Footer for every page for easy linkage to pages and information -->
         <div class="card bg-success-subtle mt-3">
             <div class="card-body text-center">
@@ -94,6 +102,9 @@
                 <p class="card-text mb-0">Website Project 2026</p>
             </div>
         </div>
+
+        <!-- Link to external JS file -->
+        <script src="js/inputBudget.js"></script>
 </body>
 
 </html>
