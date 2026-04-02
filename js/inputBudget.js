@@ -37,6 +37,12 @@ document.getElementById("budgetForm").addEventListener("submit", function (event
     }
 
     if (isValid) {
+        //Store inputted values into session storage
+        sessionStorage.description = description;
+        sessionStorage.amount = amount;
+        sessionStorage.type = type;
+
+
         successMessage.innerHTML = "Transaction added!";
 
         /* Help from https://www.w3schools.com/jsref/met_win_setTimeout.asp
