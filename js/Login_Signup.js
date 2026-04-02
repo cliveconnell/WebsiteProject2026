@@ -2,8 +2,8 @@
 //localStorage.removeItem("userNamesArray");  // Remove Comment tags on Line 2 and 3 to clear 
 //localStorage.removeItem("passwordsArray");  // local storage before test run
 
-submitSignUp.addEventListener("click", function1);
-//submitLogin.addEventListener("click", function1);
+submitSignUp.addEventListener("click", function1);  // Complete and works so far
+//submitLogin.addEventListener("click", function1); // INCOMPLETE - Not started
 
 function function1(){
     // Username Validation - must be 6 characters long,
