@@ -3,7 +3,7 @@
 //localStorage.removeItem("passwordsArray");  // local storage before test run
 
 submitSignUp.addEventListener("click", function1);  // Complete and works so far
-submitLogin.addEventListener("click", function2); // INCOMPLETE - Not started
+submitLogin.addEventListener("click", function2); // Checks that username exists and corresponding password matches. 
 
 function function1(){
     // Username Validation - must be 6 characters long,
@@ -12,26 +12,38 @@ function function1(){
     const userNamesArray = JSON.parse(localStorage.getItem("userNamesArray")) || []; // Usernames Array
     const passwordsArray = JSON.parse(localStorage.getItem("passwordsArray")) || []; // Passwords Array
     
-    let userName = document.getElementById("username").value; //Retrieve userName from SignUp
+    let userName = document.getElementById("username").value; //Retrieve userName from SignUp 
     let email = document.getElementById("email1").value;      //Retrieve email from SignUp
 	let emailCheck = 0;
     let password = document.getElementById("password1").value; //Retrieve password from Signup
 	let passwordConfirm = document.getElementById("passwordConfirm").value; // Retrieve Confirm Password from Signup
     let allChecksPassed = true;    // allChecksPassed will be set to False if any validation checks are failed
+    
     if (userName.length < 6){
 		alert("Username must be at least 6 characters long!");
         allChecksPassed = false;
 	}
+    for(let i = 0; i < userNamesArray.length; i++){
+        let userNameExists = false;
+        if (userNamesArray[i] == userName){        
+            userNameExists = true;                // Change userNameExists Boolean if username already exists
+            allChecksPassed = false;
+        }
+        if (userNameExists == true){
+            alert("Username exists! Pick again"); // Alerts user if username exist
+            return;
+        }
+    }
     for(let i=0; i<email.length; i++){
 			if(email[i] == "@"){
 				emailCheck++;                     // Increments a counter if @ symbol
 			}                                       // is found
-			if(email[i] == "."){                    
-				emailCheck++;                       // Same thing for the . symbol
+			if(email[i] == ".com"){                    
+				emailCheck++;                       // Same thing for .com
 			}
 		}
-		if(emailCheck == 0){
-			alert("Email address invalid! Must contain '@' AND '.'");
+		if(emailCheck === 0){
+			alert("Email address invalid! Must contain '@' AND '.'");  // Alerts for invalid email
             allChecksPassed = false;
 		}
 		
@@ -43,24 +55,13 @@ function function1(){
 		alert("Passwords do not match!");
         allChecksPassed = false;
 	}
-    if (allChecksPassed == true){
-        let userNameExists = false;
-        for(let i = 0; i < userNamesArray.length; i++){
-            if (userNamesArray[i] == userName){        // Increment userNameExists Var if username already exists
-                userNameExists = true;
-            }
-        }
-        
-        if (userNameExists == true){
-            alert("Username exists! Pick again"); // Alerts user if username exist
-            return;
-        }
-        else if (userNameExists == false){
+    if (allChecksPassed == true){                      // If allChecksPassed == true, push the userName and password to the array
+    
             userNamesArray.push(userName);        // Pushes userName to userNamesArray
             passwordsArray.push(password);        // Pushes password to passwordsArray corresponding position
             localStorage.setItem("userNamesArray", JSON.stringify(userNamesArray));
             localStorage.setItem("passwordsArray", JSON.stringify(passwordsArray));
-        }
+        
     }
 }
 function function2(){
