@@ -33,7 +33,7 @@ function function1(){
             alert("Username exists! Pick again"); // Alerts user if username exist
             return;
         }
-
+    }
     // Email Validation - must contain @ and .com
     for(let i=0; i<email.length; i++){
 			if(email[i] == "@"){
