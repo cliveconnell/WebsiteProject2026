@@ -41,3 +41,13 @@
 .carousel-control-next {
     width: 5%;
 }
+
+/* Add green to the left side of the card to show income */
+.income-card {
+    border-left: 4px solid green;
+}
+
+/* Add red to the left side of the card to show expense */
+.expense-card {
+    border-left: 4px solid red;
+}

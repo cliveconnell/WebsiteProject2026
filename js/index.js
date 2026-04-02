@@ -27,9 +27,17 @@ function read() {
             continue;
         }
 
+        // Apply css depending on if the option is income or expense
+        let colourClass;
+        if (type === "Income"){
+            colourClass = "income-card";
+        } else if (type === "Expense") {
+            colourClass = "expense-card";
+        }
+
         // Use bootstrap cards and fill with the info from above
         output += `
-                    <div class="card mt-3">
+                    <div class="card mt-3 ${colourClass}">
                 <div class="card-body bg-success-subtle">
                     <h5>${description}</h5>
                     <p>Amount: €${amount}</p>
