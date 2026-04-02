@@ -1,11 +1,12 @@
 /* CSS for the Budget Tracking Website */
+
 /* rule for Home Page Images Carousel */
-/* Keeps both Login and SignUp forms at 450px*/
 .homeImages {
-    height: 80%;
-    width: 80%;
+    height: auto;
+    width: 50%;
     
 }
+/* Keeps both Login and SignUp forms at 450px*/
 .forms {
     height: 450px;
 }
