@@ -1,4 +1,20 @@
 /* CSS for the Budget Tracking Website */
+/* Keeps both Login and SignUp forms at 450px*/
+.forms {
+    height: 450px;
+}
+
+/* positions the carousel items relatively*/
+.carousel-item {
+    position: relative; /* reference for absolute positioning */
+}
+
+/* positions the Login and Signup buttons absolutely*/
+#submitLogin, #submitSignUp {
+    position: absolute;
+    bottom: 1rem;  /* distance from bottom */
+    left: 2rem;    /* distance from left */
+}
 
 /* Centers the contact form submit button */
 .contactButton {
