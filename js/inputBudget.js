@@ -62,10 +62,10 @@ document.getElementById("budgetForm").addEventListener("submit", function (event
         successMessage.innerHTML = "Transaction added!";
 
         /* Help from https://www.w3schools.com/jsref/met_win_setTimeout.asp
-        Resets the form and removes the success message after 3 seconds */
+        Resets the form and removes the success message after 2 seconds */
         setTimeout(function () {
             document.getElementById("budgetForm").reset();
             successMessage.innerHTML = "";
-        }, 3000);
+        }, 2000);
     }
 })
