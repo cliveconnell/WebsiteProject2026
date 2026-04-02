@@ -22,6 +22,11 @@ function read() {
         let amount = sessionStorage["amount" + i];
         let type = sessionStorage["type" + i];
 
+        // If the entry was deleted, skip to the next entry.
+        if (description === undefined) {
+            continue;
+        }
+
         // Use bootstrap cards and fill with the info from above
         output += `
                     <div class="card mt-3">
@@ -29,13 +34,32 @@ function read() {
                     <h5>${description}</h5>
                     <p>Amount: €${amount}</p>
                     <p>Type: ${type}</p>
+                    <button class="btn btn-sm btn-danger" onclick="deleteCard(${i})">Delete</button>
                 </div>
             </div>
             `;
     }
 
-    // Use the card from above and display it on index.html using the ID
-    document.getElementById("budgetOutline").innerHTML = output;
+    // If all the entries were deleted show the below message
+    if (output == "") {
+        document.getElementById("budgetOutline").innerHTML = "No budget information added.";
+    } else {
+        // Use the card from above and display it on index.html using the ID
+        document.getElementById("budgetOutline").innerHTML = output;
+    }
 }
+
+// Deletes a selected card using its index.
+function deleteCard(index) {
+
+    // Delete the card information for the index picked
+    sessionStorage.removeItem("description" + index);
+    sessionStorage.removeItem("amount" + index);
+    sessionStorage.removeItem("type" + index);
+
+    // Re-run the read function to update the list
+    read();
+}
+
 // Call the function
 read();
