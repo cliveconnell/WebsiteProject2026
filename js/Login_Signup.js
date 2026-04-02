@@ -3,7 +3,7 @@
 //localStorage.removeItem("passwordsArray");  // local storage before test run
 
 submitSignUp.addEventListener("click", function1);  // Complete and works so far
-//submitLogin.addEventListener("click", function1); // INCOMPLETE - Not started
+submitLogin.addEventListener("click", function2); // INCOMPLETE - Not started
 
 function function1(){
     // Username Validation - must be 6 characters long,
@@ -13,9 +13,9 @@ function function1(){
     const passwordsArray = JSON.parse(localStorage.getItem("passwordsArray")) || []; // Passwords Array
     
     let userName = document.getElementById("username").value; //Retrieve userName from SignUp
-    let email = document.getElementById("email1").value;
+    let email = document.getElementById("email1").value;      //Retrieve email from SignUp
 	let emailCheck = 0;
-    let password = document.getElementById("password1").value; //Retrieve userName from Signup
+    let password = document.getElementById("password1").value; //Retrieve password from Signup
 	let passwordConfirm = document.getElementById("passwordConfirm").value; // Retrieve Confirm Password from Signup
     let allChecksPassed = true;    // allChecksPassed will be set to False if any validation checks are failed
     if (userName.length < 6){
@@ -61,5 +61,32 @@ function function1(){
             localStorage.setItem("userNamesArray", JSON.stringify(userNamesArray));
             localStorage.setItem("passwordsArray", JSON.stringify(passwordsArray));
         }
+    }
+}
+function function2(){
+    let userNameLogin = document.getElementById("usernameLogin").value; //Retrieve userName from Login
+    let passwordLogin = document.getElementById("passwordLogin").value; //Retrieve password from Login
+
+    const userNamesArray = JSON.parse(localStorage.getItem("userNamesArray")) || []; // Retrieve Usernames Array from Local Storage
+    const passwordsArray = JSON.parse(localStorage.getItem("passwordsArray")) || []; // Retrieve Passwords Array from Local Storage
+
+    let myIndex = -1;                                   // Stores users position in array for use late - MAY NEED TO MOVE OUTSIDE THIS FUNCTION
+    let userNameExists = false;                         // userNameExists and passwordsMatch are not currently used - MAY NEED TO DELETE LATER
+    let passwordsMatch = false;
+
+    for(let i = 0; i < userNamesArray.length; i++){
+            if (userNameLogin === userNamesArray[i]){    // Search for username  
+                userNameExists = true;                  // Increment userNameExists boolean if username exists
+                myIndex = i;
+                if (passwordLogin === passwordsArray[i]){
+                    passwordsMatch = true;              // Change passwordsMatch boolean if passwords match
+                }
+            }
+        }
+    if (userNameExists == true && passwordsMatch == true){
+        alert("Success! You are logged in");
+    }
+    else if (userNameExists == false || passwordsMatch == false){
+        alert("Login Failed!");
     }
 }
