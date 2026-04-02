@@ -37,10 +37,26 @@ document.getElementById("budgetForm").addEventListener("submit", function (event
     }
 
     if (isValid) {
+        // Help from https://www.geeksforgeeks.org/javascript/localstorage-and-sessionstorage-web-storage-apis/
+
+        // Get the count from session storage
+        let count = Number(sessionStorage.count);
+
+        // If no session storage set count as 0
+        if (!count) {
+            count = 0;
+        }
+
+        // Increment count
+        count++;
+
         //Store inputted values into session storage
-        sessionStorage.description = description;
-        sessionStorage.amount = amount;
-        sessionStorage.type = type;
+        sessionStorage["description" + count] = description;
+        sessionStorage["amount" + count] = amount;
+        sessionStorage["type" + count] = type;
+
+        // Save count
+        sessionStorage.count = count;
 
 
         successMessage.innerHTML = "Transaction added!";
