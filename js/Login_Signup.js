@@ -79,13 +79,13 @@ function function2(){
     let passwordsMatch = false;
 
     for(let i = 0; i < userNamesArray.length; i++){
-            if (userNameLogin === userNamesArray[i]){    // Search for username  
-                userNameExists = true;                  // Increment userNameExists boolean if username exists
-                myIndex = i;
-                if (passwordLogin === passwordsArray[i]){
-                    passwordsMatch = true;              // Change passwordsMatch boolean if passwords match
-                }
+        if (userNameLogin === userNamesArray[i]){    // Search for username  
+            userNameExists = true;                  // Increment userNameExists boolean if username exists
+            myIndex = i;
+            if (passwordLogin === passwordsArray[i]){
+                passwordsMatch = true;              // Change passwordsMatch boolean if passwords match
             }
+        }
         }
     if (userNameExists == true && passwordsMatch == true){
         alert("Success! You are logged in");
