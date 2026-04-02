@@ -15,7 +15,7 @@ function read() {
     let output = "";
 
     // Loop through all values
-    for (let i = 0; i <= count; i++) {
+    for (let i = 1; i <= count; i++) {
 
         // Example desctiption 1, next loop stores as description 2 (Allows multiple cards to display)
         let description = sessionStorage["description" + i];
