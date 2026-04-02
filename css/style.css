@@ -19,3 +19,9 @@
 .inputBudgetButton {
     text-align: center;
 }
+
+/* Sets Carousel arrows to 5% width - reduces interference with submit and login buttons*/
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%;
+}
