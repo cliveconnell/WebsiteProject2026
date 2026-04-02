@@ -9,8 +9,8 @@ function function1(){
     // Username Validation - must be 6 characters long,
     // Must not exist already - INCOMPLETE
     // How to create Arrays in local storage - Help form "geeksforgeeks" https://www.geeksforgeeks.org/javascript/how-to-store-an-array-in-localstorage/
-    const userNamesArray = JSON.parse(localStorage.getItem("userNamesArray")) || []; // Usernames Array
-    const passwordsArray = JSON.parse(localStorage.getItem("passwordsArray")) || []; // Passwords Array
+    const userNamesArray = JSON.parse(localStorage.getItem("userNamesArray")) || []; // userNamesArray initialised with data retrieved from local storage
+    const passwordsArray = JSON.parse(localStorage.getItem("passwordsArray")) || []; // passwordsArray initialised with data retrieved from local storage
     
     let userName = document.getElementById("username").value; //Retrieve userName from SignUp 
     let email = document.getElementById("email1").value;      //Retrieve email from SignUp
@@ -59,8 +59,8 @@ function function1(){
     
             userNamesArray.push(userName);        // Pushes userName to userNamesArray
             passwordsArray.push(password);        // Pushes password to passwordsArray corresponding position
-            localStorage.setItem("userNamesArray", JSON.stringify(userNamesArray));
-            localStorage.setItem("passwordsArray", JSON.stringify(passwordsArray));
+            localStorage.setItem("userNamesArray", JSON.stringify(userNamesArray)); //update userNamesArray in local storage
+            localStorage.setItem("passwordsArray", JSON.stringify(passwordsArray)); //update passwordsArray in local storage
         
     }
 }
