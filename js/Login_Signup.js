@@ -6,8 +6,6 @@ submitSignUp.addEventListener("click", function1);  // Complete and works so far
 submitLogin.addEventListener("click", function2); // Checks that username exists and corresponding password matches. 
 
 function function1(){
-    // Username Validation - must be 6 characters long,
-    // Must not exist already - INCOMPLETE
     // How to create Arrays in local storage - Help form "geeksforgeeks" https://www.geeksforgeeks.org/javascript/how-to-store-an-array-in-localstorage/
     const userNamesArray = JSON.parse(localStorage.getItem("userNamesArray")) || []; // userNamesArray initialised with data retrieved from local storage
     const passwordsArray = JSON.parse(localStorage.getItem("passwordsArray")) || []; // passwordsArray initialised with data retrieved from local storage
@@ -19,6 +17,8 @@ function function1(){
 	let passwordConfirm = document.getElementById("passwordConfirm").value; // Retrieve Confirm Password from Signup
     let allChecksPassed = true;    // allChecksPassed will be set to False if any validation checks are failed
     
+    // Username Validation - must be 6 characters long,
+    // Must not exist already - INCOMPLETE
     if (userName.length < 6){
 		alert("Username must be at least 6 characters long!");
         allChecksPassed = false;
@@ -33,7 +33,8 @@ function function1(){
             alert("Username exists! Pick again"); // Alerts user if username exist
             return;
         }
-    }
+
+    // Email Validation - must contain @ and .com
     for(let i=0; i<email.length; i++){
 			if(email[i] == "@"){
 				emailCheck++;                     // Increments a counter if @ symbol
@@ -46,11 +47,13 @@ function function1(){
 			alert("Email address invalid! Must contain '@' AND '.'");  // Alerts for invalid email
             allChecksPassed = false;
 		}
-		
+	
+    // Password Validation - must be at least 6 characters long
     if (password.length < 6){
 		alert("Password must be at least 6 characters long!");
         allChecksPassed = false;
 	}
+    // Password Confirm Validation - must match Initial Password
     if (password != passwordConfirm){
 		alert("Passwords do not match!");
         allChecksPassed = false;
@@ -59,7 +62,7 @@ function function1(){
     
             userNamesArray.push(userName);        // Pushes userName to userNamesArray
             passwordsArray.push(password);        // Pushes password to passwordsArray corresponding position
-            localStorage.setItem("userNamesArray", JSON.stringify(userNamesArray)); //update userNamesArray in local storage
+            localStorage.setItem("userNamesArray", JSON.stringify(userNamesArray)); //update userNamesArray in local storage, JSON.stringify converts array to a string
             localStorage.setItem("passwordsArray", JSON.stringify(passwordsArray)); //update passwordsArray in local storage
         
     }
