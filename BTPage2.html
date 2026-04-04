@@ -47,6 +47,7 @@
             </div>
         </nav>
 
+        <!-- Form is used for entering the weekly budget amount -->
         <div class="bg-success-subtle mt-3">
             <form class="m-3" id="addWeeklyBudgetForm">
                 <h4 class="text-center">Add Weekly Budget Amount</h4>
@@ -54,7 +55,7 @@
                 <p class="bg-success text-white" id="addBudgetSucces"></p>
                 <!-- Warning message for invalid field -->
                 <p class="bg-danger text-white" id="addBudgetWarning"></p>
-                <!-- Form field for entering description of budget item with a placeholder to help users-->
+                <!-- Form field for entering weekly budget with a placeholder to help users-->
                 <div class="m-3">
                     <label for="enterBudget" class="form-label inputBudgetLabel">Weekly Budget</label>
                     <input type="number" class="form-control" id="enterBudget" placeholder="Enter Weekly Budget">
@@ -67,7 +68,8 @@
                 <br>
             </form>
         </div>
-
+        
+        <!-- Form is used for entering the budget transaction either income or expense -->
         <div class="bg-success-subtle mt-3">
             <form class="m-3" id="budgetForm">
                 <h4 class="text-center">Add Transaction</h4>
