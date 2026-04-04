@@ -3,7 +3,7 @@
 function displayWeeklyBudget() {
     let weeklyBudget = sessionStorage.weeklyBudget;
 
-    if (weeklyBudget === undefined) {
+    if (weeklyBudget === undefined || weeklyBudget == 0) {
         document.getElementById("addWeeklyBudgetDisplay").innerHTML = "No weekly Budget information added.";
     } else {
         document.getElementById("addWeeklyBudgetDisplay").innerHTML = "€" + weeklyBudget;
@@ -81,6 +81,16 @@ function deleteCard(index) {
 
     // Re-run the read function to update the list
     read();
+}
+
+// Function will reset the weekly budget
+function resetWeeklyBudget() {
+
+    // Sets the weekly budget to 0
+    sessionStorage.weeklyBudget = 0;
+
+    // Update the display weekly budget
+    displayWeeklyBudget();
 }
 
 // Call the function
