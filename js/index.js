@@ -1,3 +1,17 @@
+// Function will display the weekly budget from session storage and display it on the page
+
+function displayWeeklyBudget() {
+    let weeklyBudget = sessionStorage.weeklyBudget;
+
+    if (weeklyBudget === undefined) {
+        document.getElementById("addWeeklyBudgetDisplay").innerHTML = "No weekly Budget information added.";
+    } else {
+        document.getElementById("addWeeklyBudgetDisplay").innerHTML = "€" + weeklyBudget;
+    }
+}
+
+
+
 // Function will read inputted data from session storage and display it on the page.
 
 // ${} help from https://www.w3schools.com/js/js_string_templates.asp
@@ -70,4 +84,5 @@ function deleteCard(index) {
 }
 
 // Call the function
+displayWeeklyBudget();
 read();
