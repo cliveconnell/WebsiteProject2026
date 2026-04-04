@@ -48,6 +48,27 @@
         </nav>
 
         <div class="bg-success-subtle mt-3">
+            <form class="m-3" id="addWeeklyBudgetForm">
+                <h4 class="text-center">Add Weekly Budget Amount</h4>
+                <!-- Form is valid show a success message -->
+                <p class="bg-success text-white" id="addBudgetSucces"></p>
+                <!-- Warning message for invalid field -->
+                <p class="bg-danger text-white" id="addBudgetWarning"></p>
+                <!-- Form field for entering description of budget item with a placeholder to help users-->
+                <div class="m-3">
+                    <label for="enterBudget" class="form-label inputBudgetLabel">Weekly Budget</label>
+                    <input type="number" class="form-control" id="enterBudget" placeholder="Enter Weekly Budget">
+                </div>
+                <!-- Using style.css to center the submit button -->
+                <div class="inputBudgetButton">
+                    <a href="index.html" class="btn btn-primary">View Budget</a>
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </div>
+                <br>
+            </form>
+        </div>
+
+        <div class="bg-success-subtle mt-3">
             <form class="m-3" id="budgetForm">
                 <h4 class="text-center">Add Transaction</h4>
                 <!-- Form is valid show a success message -->
@@ -86,7 +107,7 @@
                 <div class="inputBudgetButton">
                     <a href="index.html" class="btn btn-primary">View Budget</a>
                     <button type="submit" class="btn btn-primary">Add</button>
-                    </div>
+                </div>
                 <br>
             </form>
         </div>
@@ -98,7 +119,7 @@
                 <h5 class="card-title">Budget Tracker</h5>
 
                 <!-- Nav links -->
-                 <a class="text-black text-decoration-none me-2" href="home.html">Home</a>
+                <a class="text-black text-decoration-none me-2" href="home.html">Home</a>
                 <a class="text-black text-decoration-none me-2" href="index.html">Budget Outlined</a>
                 <a class="text-black text-decoration-none me-2" href="BTPage2.html">Input Expenses</a>
                 <a class="text-black text-decoration-none" href="BTPage3.html">Contact Us</a>
