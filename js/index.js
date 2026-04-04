@@ -72,10 +72,16 @@ function read() {
             `;
     }
 
-    // Calulate the reminaing budget
+    // Calulate the reminaing budget (Only if weekly budget exists)
     let weeklyBudget = Number(sessionStorage.weeklyBudget);
-    let remainingAmount = weeklyBudget + totalIncome - totalExpenses;
-    document.getElementById("remainingBudget").innerHTML = "Remaining Budget: €" + remainingAmount;
+
+    if (weeklyBudget > 0) {
+        let remainingAmount = weeklyBudget + totalIncome - totalExpenses;
+        document.getElementById("remainingBudget").innerHTML = "Remaining Budget: €" + remainingAmount;
+    } else {
+        document.getElementById("remainingBudget").innerHTML = "";
+    }
+
 
     // If all the entries were deleted show the below message
     if (output == "") {
@@ -106,6 +112,7 @@ function resetWeeklyBudget() {
 
     // Update the display weekly budget
     displayWeeklyBudget();
+    read();
 }
 
 // Call the function
