@@ -6,7 +6,7 @@ function displayWeeklyBudget() {
     if (weeklyBudget === undefined || weeklyBudget == 0) {
         document.getElementById("addWeeklyBudgetDisplay").innerHTML = "No weekly Budget information added.";
     } else {
-        document.getElementById("addWeeklyBudgetDisplay").innerHTML = "€" + weeklyBudget;
+        document.getElementById("addWeeklyBudgetDisplay").innerHTML = "Weekly Budget: €" + weeklyBudget;
     }
 }
 
@@ -28,6 +28,9 @@ function read() {
 
     let output = "";
 
+    let totalExpenses = 0;
+    let totalIncome = 0;
+
     // Loop through all values
     for (let i = 1; i <= count; i++) {
 
@@ -41,9 +44,16 @@ function read() {
             continue;
         }
 
+        // Add up the expenses to totalExpenses
+        if (type === "Expense") {
+            totalExpenses += Number(amount);
+        } else if (type === "Income") {
+            totalIncome += Number(amount);
+        }
+
         // Apply css depending on if the option is income or expense
         let colourClass;
-        if (type === "Income"){
+        if (type === "Income") {
             colourClass = "income-card";
         } else if (type === "Expense") {
             colourClass = "expense-card";
@@ -61,6 +71,11 @@ function read() {
             </div>
             `;
     }
+
+    // Calulate the reminaing budget
+    let weeklyBudget = Number(sessionStorage.weeklyBudget);
+    let remainingAmount = weeklyBudget + totalIncome - totalExpenses;
+    document.getElementById("remainingBudget").innerHTML = "Remaining Budget: €" + remainingAmount;
 
     // If all the entries were deleted show the below message
     if (output == "") {
