@@ -27,8 +27,8 @@ document.getElementById("budgetForm").addEventListener("submit", function (event
         descWarning.innerHTML = "Enter a description.";
         isValid = false;
     }
-    if (amount === "") {
-        amountWarning.innerHTML = "Enter a valid amount.";
+    if (amount === "" || Number(amount) <= 0) {
+        amountWarning.innerHTML = "Enter a valid positive amount.";
         isValid = false;
     }
     if (type === "") {
