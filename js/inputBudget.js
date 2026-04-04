@@ -69,3 +69,40 @@ document.getElementById("budgetForm").addEventListener("submit", function (event
         }, 2000);
     }
 })
+
+
+/* Validation for weekly budget input. If the value 
+is incorrect, change the blank <p> to use the inner.html message */
+document.getElementById("addWeeklyBudgetForm").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+
+    // Get user input values and store warning messages
+    let weeklyBudget = document.getElementById("enterBudget").value;
+    let addBudgetSuccess = document.getElementById("addBudgetSuccess");
+    let addBudgetWarning = document.getElementById("addBudgetWarning");
+
+
+    // Clear all messages before validating
+    addBudgetSuccess.innerHTML = "";
+    addBudgetWarning.innerHTML = "";
+
+
+    // If form fields are blank or not selected show the error message until resolved
+    if (weeklyBudget === "" || Number(weeklyBudget) <= 0) {
+        addBudgetWarning.innerHTML = "Enter a positve weekly budget";
+    } else {
+        // Store weekly budget in session storage
+        sessionStorage.weeklyBudget = weeklyBudget
+
+        // change blank <p> to a success message.
+        addBudgetSuccess.innerHTML = "Weekly budget added.";
+
+        // Clear the form after 2 seconds.
+        setTimeout(function () {
+            document.getElementById("addWeeklyBudgetForm").reset();
+            addBudgetSuccess.innerHTML = "";
+        }, 2000);
+
+    }
+})
