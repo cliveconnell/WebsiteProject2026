@@ -2,11 +2,16 @@
 
 function displayWeeklyBudget() {
     let weeklyBudget = sessionStorage.weeklyBudget;
+    let resetBudgetButton = document.getElementById("resetBudgetButton")
 
     if (weeklyBudget === undefined || weeklyBudget == 0) {
         document.getElementById("addWeeklyBudgetDisplay").innerHTML = "No weekly Budget information added.";
+        // if no budget, hide the reset button
+        resetBudgetButton.style.display = "none";
     } else {
         document.getElementById("addWeeklyBudgetDisplay").innerHTML = "Weekly Budget: €" + weeklyBudget;
+        // if budget, show the button
+        resetBudgetButton.style.display = "inline-block";
     }
 }
 
