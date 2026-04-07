@@ -1,15 +1,14 @@
 /* Validate and process Login and Signup information*/
-//localStorage.removeItem("userNamesArray");  // Remove Comment tags on Line 2 and 3 to clear 
-//localStorage.removeItem("passwordsArray");  // local storage before test run
 
 submitSignUp.addEventListener("click", function1);  // Complete and works so far
 submitLogin.addEventListener("click", function2); // Checks that username exists and corresponding password matches. 
+clearUserData.addEventListener("click", function3); //Clear user data from local storage
 
 function function1(){
     // How to create Arrays in local storage - Help form "geeksforgeeks" https://www.geeksforgeeks.org/javascript/how-to-store-an-array-in-localstorage/
     const userNamesArray = JSON.parse(localStorage.getItem("userNamesArray")) || []; // userNamesArray initialised with data retrieved from local storage
     const passwordsArray = JSON.parse(localStorage.getItem("passwordsArray")) || []; // passwordsArray initialised with data retrieved from local storage
-    
+    const budgetsArray = JSON.parse(localStorage.getItem("passwordsArray")) || [];
     let userName = document.getElementById("username").value; //Retrieve userName from SignUp 
     let email = document.getElementById("email1").value;      //Retrieve email from SignUp
 	let emailCheck = 0;
@@ -39,8 +38,8 @@ function function1(){
 			if(email[i] == "@"){
 				emailCheck++;                     // Increments a counter if @ symbol
 			}                                       // is found
-			if(email[i] == ".com"){                    
-				emailCheck++;                       // Same thing for .com
+			if(email[i] == "."){                    
+				emailCheck++;                       // Same thing for .
 			}
 		}
 		if(emailCheck === 0){
@@ -93,4 +92,8 @@ function function2(){
     else if (userNameExists == false || passwordsMatch == false){
         alert("Login Failed!");
     }
+}
+function function3(){
+    localStorage.removeItem("userNamesArray"); 
+    localStorage.removeItem("passwordsArray");  
 }
