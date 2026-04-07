@@ -3,6 +3,10 @@
 submitSignUp.addEventListener("click", function1);  // Complete and works so far
 submitLogin.addEventListener("click", function2); // Checks that username exists and corresponding password matches. 
 clearUserData.addEventListener("click", function3); //Clear user data from local storage
+//submitBudget.addEventListener("click", function4); //Updates and maintains stored budget information for each logged in user - INCOMPLETE
+
+let myIndex = -1;                                   // Stores users position in array after login
+let loggedIn = false;                               // Nobody is logged in
 
 function function1(){
     // How to create Arrays in local storage - Help form "geeksforgeeks" https://www.geeksforgeeks.org/javascript/how-to-store-an-array-in-localstorage/
@@ -73,27 +77,38 @@ function function2(){
     const userNamesArray = JSON.parse(localStorage.getItem("userNamesArray")) || []; // Retrieve Usernames Array from Local Storage
     const passwordsArray = JSON.parse(localStorage.getItem("passwordsArray")) || []; // Retrieve Passwords Array from Local Storage
 
-    let myIndex = -1;                                   // Stores users position in array for use late - MAY NEED TO MOVE OUTSIDE THIS FUNCTION
     let userNameExists = false;                         // userNameExists and passwordsMatch are not currently used - MAY NEED TO DELETE LATER
     let passwordsMatch = false;
 
     for(let i = 0; i < userNamesArray.length; i++){
         if (userNameLogin === userNamesArray[i]){    // Search for username  
             userNameExists = true;                  // Increment userNameExists boolean if username exists
-            myIndex = i;
             if (passwordLogin === passwordsArray[i]){
                 passwordsMatch = true;              // Change passwordsMatch boolean if passwords match
+                myIndex = i;
+                break;
             }
         }
         }
-    if (userNameExists == true && passwordsMatch == true){
+    if (userNameExists === true && passwordsMatch === true){
         alert("Success! You are logged in");
+        loggedIn = true;
     }
     else if (userNameExists == false || passwordsMatch == false){
         alert("Login Failed!");
     }
+    function5();
 }
+
 function function3(){
     localStorage.removeItem("userNamesArray"); 
     localStorage.removeItem("passwordsArray");  
+}
+function function4(){
+
+}
+function function5(){
+    if (loggedIn === true){
+        document.getElementById("userBudget").innerHTML = '<input type="text" id="nameInput" placeholder="Enter budget"><br><button type="submit" class="btn btn-primary mb-3" id="submitBudget">Update Budget</button>';
+    }
 }
