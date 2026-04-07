@@ -6,7 +6,8 @@ clearUserData.addEventListener("click", function3); //Clear user data from local
 //submitBudget.addEventListener("click", function4); //Updates and maintains stored budget information for each logged in user - INCOMPLETE
 
 let myIndex = -1;                                   // Stores users position in array after login
-let loggedIn = false;                               // Nobody is logged in
+let loggedIn = localStorage.getItem("loggedIn") === "true" || false;   // Retrieve Boolean for loggedIn from localStorage or set to 'false' if it doesnt exist
+function5();
 
 function function1(){
     // How to create Arrays in local storage - Help form "geeksforgeeks" https://www.geeksforgeeks.org/javascript/how-to-store-an-array-in-localstorage/
@@ -93,10 +94,12 @@ function function2(){
     if (userNameExists === true && passwordsMatch === true){
         alert("Success! You are logged in");
         loggedIn = true;
+        localStorage.setItem("loggedIn", loggedIn);    // Send loggedIn boolean to local Storage
     }
     else if (userNameExists == false || passwordsMatch == false){
         alert("Login Failed!");
     }
+    
     function5();
 }
 
@@ -108,6 +111,7 @@ function function4(){
 
 }
 function function5(){
+    loggedIn = localStorage.getItem("loggedIn") === "true" || false;
     if (loggedIn === true){
         document.getElementById("userBudget").innerHTML = '<input type="text" id="nameInput" placeholder="Enter budget"><br><button type="submit" class="btn btn-primary mb-3" id="submitBudget">Update Budget</button>';
     }
