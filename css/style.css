@@ -17,7 +17,7 @@
 }
 
 /* positions the Login and Signup buttons absolutely*/
-#submitLogin, #submitSignUp {
+#submitLogin, #signupClearButtons{
     position: absolute;
     bottom: 1rem;  /* distance from bottom */
     left: 2rem;    /* distance from left */
