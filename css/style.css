@@ -43,10 +43,10 @@
     text-align: center;
 }
 
-/* Sets Carousel arrows to 5% width - reduces interference with submit and login buttons*/
+/* Sets Carousel arrows to 2% width - reduces interference with submit and login buttons*/
 .carousel-control-prev,
 .carousel-control-next {
-    width: 5%;
+    width: 2%;
 }
 
 /* Add green to the left side of the card to show income */
