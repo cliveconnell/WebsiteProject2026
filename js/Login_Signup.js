@@ -157,16 +157,18 @@ function function5(){
             <table class="table table-bordered" id="tableAddTransaction">
                 <form class="forms fs-1 bg-light text-secondary-emphasis text-center">
                     <tr class="bg-light text-secondary-emphasis text-center">
-                        <td class="m-3"><b>Transacation Data: </b></td>
+                        <td class="m-3"><b>Transaction: </b></td>
                         <td class="m-3">
-                            <label for="expense/income">Expense/Income</label>
+                            <label for="expense/income"><b>Expense(-)/Income(+)</b></label>
+                            <br>
                             <select name="Expense/Income" id="expenseIncome">
                                 <option value="expense">-</option>
                                 <option value="income">+</option>
                             </select>
                         </td>                                 
                         <td class="m-3">
-                            <label for="category"><b>Select</b></label>
+                            <label for="category"><b>Select Category</b></label>
+                            <br>
                             <select name="Category" id="category">
                                 <option value="essential">Essential</option>
                                 <option value="nonEssential">Non-Essential</option>
