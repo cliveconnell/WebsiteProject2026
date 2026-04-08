@@ -6,19 +6,25 @@
     width: 50%;
     
 }
-/* Keeps both Login and SignUp forms at 450px*/
+/* Keeps both Login and SignUp forms at min 450px
+    Displays in columns */
 .forms {
-    height: 450px;
+    min-height: 450px;
+    display:flex;
+    flex-direction: column;
 }
 
 /* positions the carousel items relatively*/
-.carousel-item {
+.carousel-item, #userBudget {
     position: relative; /* reference for absolute positioning */
+}
+/* Constrain carousel width */
+.carousel-inner {
+    overflow: hidden;
 }
 
 /* positions the Login and Signup buttons absolutely*/
 #submitLogin, #signupClearButtons{
-    position: absolute;
     bottom: 1rem;  /* distance from bottom */
     left: 2rem;    /* distance from left */
 }
