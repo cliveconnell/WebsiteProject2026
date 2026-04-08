@@ -138,44 +138,69 @@ function function5(){
     if (loggedIn === true){                                // If a user is logged in, retrieve budgetsArray
         const budgetsArray = JSON.parse(localStorage.getItem("budgetsArray")) || []; // Get array only after user login to ensure it exists and maintain parallel array integrity
         let myBudget = budgetsArray[myIndex];
+
+        // IF/ELSE determines if user has an active budget or is starting a new one
         if (myBudget == -1){
             budgetExists = false;
-            myUserBudgetOutput +=
-            `<h3>You have no active budget. Would you like to add one?</h3>
-            <input type="text" id="budgetInput" placeholder="Enter New Budget">
-            <br>
-            <button type="submit" class="btn btn-primary m-3" id="submitNewBudget">
-            Submit Budget
-            </button>`;
-            //document.getElementById("userBudget").innerHTML = myUserBudgetOutput;
-            //document.getElementById("submitNewBudget").onclick = function4;
+            myUserBudgetOutput += `<h3>You have no active budget. Would you like to add one?</h3>`;
         }
         else if (myBudget > -1){
             budgetExists = true;
-            myUserBudgetOutput +=
-            `<h3>You have an active budget. Would you like to update it?</h3>
-            <input type="text" id="budgetInput" placeholder="Add to Budget">
+            myUserBudgetOutput += `<h3>You have an active budget. Would you like to update it?</h3>`
+        }
+        
+        myUserBudgetOutput += `<input type="text" id="budgetInput" placeholder="Add/Update Budget">
             <br>
             <button type="submit" class="btn btn-primary m-3" id="submitNewBudget">
-            Add to Budget
-            </button>`;
-            //document.getElementById("userBudget").innerHTML = myUserBudgetOutput;
-            //document.getElementById("submitNewBudget").onclick = function4;
-        }
-            document.getElementById("userBudget").innerHTML = myUserBudgetOutput;
-            submitNewBudget.addEventListener("click", function4);       // Use .onclick so as not to add another event listener each time function5() runs
-            document.getElementById("userBudget").innerHTML += `<table class="table table-bordered" id="tableBudgetTracker">
+            Add/Update Budget
+            </button>
+            <table class="table table-bordered" id="tableAddTransaction">
+                <form class="forms fs-1 bg-light text-secondary-emphasis text-center">
+                    <tr class="bg-light text-secondary-emphasis text-center">
+                        <td class="m-3"><b>Transacation Data: </b></td>
+                        <td class="m-3">
+                            <label for="expense/income">Expense/Income</label>
+                            <select name="Expense/Income" id="expenseIncome">
+                                <option value="expense">-</option>
+                                <option value="income">+</option>
+                            </select>
+                        </td>                                 
+                        <td class="m-3">
+                            <label for="category"><b>Select</b></label>
+                            <select name="Category" id="category">
+                                <option value="essential">Essential</option>
+                                <option value="nonEssential">Non-Essential</option>
+                                <option value="luxury">Luxury</option>
+                            </select>
+                            </td>
+                        <td class="m-3">
+                            <label for="value" class="form-label"><b>Value</b></label>
+                            <input type="text" placeholder="value" class="form-control" id="value">    
+                        </td>
+                    </tr>
+                
+                </form>
+            </table>`;
 
-            </table>`
+        document.getElementById("userBudget").innerHTML = myUserBudgetOutput;
+        document.getElementById("submitNewBudget").onclick = function4;       // Use .onclick so as not to add another event listener each time function5() runs
+        
+        // Generate Budget Table of transactions dynamically with JS
+        document.getElementById("userBudget").innerHTML += `<table class="table table-bordered" id="tableBudgetTracker">
+        
+            </table>`;
+            // Table Header, column names, table content
+            let tableContent = ``;
             let tableGenerator = 
             `<thead>
                 <tr>
-                    <th scope="col">+/-</th>
+                    <th scope="col">#</th>
+                    <th scope="col">+/-</th>                                 
                     <th scope="col">Category</th>
                     <th scope="col">Value</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody>` + tableContent + `
             </tbody>`;
         
         document.getElementById("tableBudgetTracker").innerHTML = tableGenerator;
