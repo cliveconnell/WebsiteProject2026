@@ -161,6 +161,7 @@ function function5(){
                         <td class="m-3">
                             <label for="expense/income"><b>Expense(-)/Income(+)</b></label>
                             <br>
+                            <br>
                             <select name="Expense/Income" id="expenseIncome">
                                 <option value="expense">-</option>
                                 <option value="income">+</option>
@@ -168,6 +169,7 @@ function function5(){
                         </td>                                 
                         <td class="m-3">
                             <label for="category"><b>Select Category</b></label>
+                            <br>
                             <br>
                             <select name="Category" id="category">
                                 <option value="essential">Essential</option>
