@@ -120,7 +120,7 @@ function function5(){
     if (loggedIn === true){
         document.getElementById("userBudget").innerHTML = '<input type="text" id="nameInput" placeholder="Enter budget"><br><button type="submit" class="btn btn-primary m-3" id="submitBudget">Update Budget</button>';
     }
-    else {
+    else { // This is where continue as guest feature can go
         document.getElementById("userBudget").innerHTML = '';
     }
 }
