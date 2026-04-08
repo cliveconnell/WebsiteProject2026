@@ -9,6 +9,7 @@ let myIndex = -1;                                   // Stores users position in 
 let loggedIn = localStorage.getItem("loggedIn") === "true" || false;   // Retrieve Boolean for loggedIn from localStorage or set to 'false' if it doesnt exist
 function5();
 
+// function1() for Signing Up
 function function1(){
     // How to create Arrays in local storage - Help form "geeksforgeeks" https://www.geeksforgeeks.org/javascript/how-to-store-an-array-in-localstorage/
     const userNamesArray = JSON.parse(localStorage.getItem("userNamesArray")) || []; // userNamesArray initialised with data retrieved from local storage
@@ -71,6 +72,7 @@ function function1(){
         
     }
 }
+// function2() for logging in
 function function2(){
     let userNameLogin = document.getElementById("usernameLogin").value; //Retrieve userName from Login
     let passwordLogin = document.getElementById("passwordLogin").value; //Retrieve password from Login
@@ -78,22 +80,22 @@ function function2(){
     const userNamesArray = JSON.parse(localStorage.getItem("userNamesArray")) || []; // Retrieve Usernames Array from Local Storage
     const passwordsArray = JSON.parse(localStorage.getItem("passwordsArray")) || []; // Retrieve Passwords Array from Local Storage
 
-    let userNameExists = false;                         // userNameExists and passwordsMatch are not currently used - MAY NEED TO DELETE LATER
-    let passwordsMatch = false;
+    let userNameExists = false;                         // userNameExists and passwordsMatch booleans
+    let passwordsMatch = false;                         // for logging in
 
     for(let i = 0; i < userNamesArray.length; i++){
         if (userNameLogin === userNamesArray[i]){    // Search for username  
-            userNameExists = true;                  // Increment userNameExists boolean if username exists
+            userNameExists = true;                  // userNameExists boolean = true if username exists
             if (passwordLogin === passwordsArray[i]){
                 passwordsMatch = true;              // Change passwordsMatch boolean if passwords match
-                myIndex = i;
-                break;
+                myIndex = i;                        // Store index value in myIndex for parallel array reference
+                break;                              // Exit loop when login is complete
             }
         }
         }
     if (userNameExists === true && passwordsMatch === true){
         alert("Success! You are logged in");
-        loggedIn = true;
+        loggedIn = true;                               // Boolean for user logged in, used in other functions to keep user logged in and on refresh
         localStorage.setItem("loggedIn", loggedIn);    // Send loggedIn boolean to local Storage
     }
     else if (userNameExists == false || passwordsMatch == false){
@@ -102,17 +104,19 @@ function function2(){
     
     function5();
 }
-
+// function3() for clearing local storage
 function function3(){
     localStorage.removeItem("userNamesArray"); 
     localStorage.removeItem("passwordsArray");  
 }
+// function4() is EMPTY - for user budget details
 function function4(){
 
 }
+// function5() is for changing some site elements if logged in
 function function5(){
     loggedIn = localStorage.getItem("loggedIn") === "true" || false;
     if (loggedIn === true){
-        document.getElementById("userBudget").innerHTML = '<input type="text" id="nameInput" placeholder="Enter budget"><br><button type="submit" class="btn btn-primary mb-3" id="submitBudget">Update Budget</button>';
+        document.getElementById("userBudget").innerHTML = '<input type="text" id="nameInput" placeholder="Enter budget"><br><button type="submit" class="btn btn-primary m-3" id="submitBudget">Update Budget</button>';
     }
 }
