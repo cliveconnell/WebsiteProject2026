@@ -31,16 +31,16 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link container-fluid mt-2" href="Home.html">Home</a>
+                            <a class="nav-link mt-2" href="Home.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link container-fluid mt-2" href="index.html">Budget Outlined</a>
+                            <a class="nav-link mt-2" href="index.html">Budget Outlined</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link container-fluid mt-2" href="BTPage2.html">Input Budget</a>
+                            <a class="nav-link mt-2" href="BTPage2.html">Input Budget</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link container-fluid mt-2" href="BTPage3.html">Contact Us</a>
+                            <a class="nav-link mt-2" href="BTPage3.html">Contact Us</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav">
@@ -55,7 +55,7 @@
             <!--data-bs-ride = false prevents auto slide-->
             <div class="carousel-inner">
                 <div class="carousel-item active"> <!--carousel-item active sets this item as active-->
-                    <form class="forms m-3">
+                    <form class="forms p-3 d-flex flex-column">
                         <div class="m-3">
                             <label for="Username" class="form-label"><b>Username</b></label>
                             <input type="text" placeholder="Username" class="form-control" id="username">
@@ -76,7 +76,7 @@
                             <label for="passwordConfirm" class="form-label"><b>Confirm Password</b></label>
                             <input type="password" placeholder="Password" class="form-control" id="passwordConfirm">
                         </div>
-                        <div id="signupClearButtons">
+                        <div class="mt-auto m-3" id="signupClearButtons">
                             <button type="submit" class="btn btn-primary mb-3" id="submitSignUp">
                                 Sign Up
                             </button>
@@ -88,7 +88,7 @@
                     </form>
                 </div>
                 <div class="carousel-item">
-                    <form class="forms m-3">
+                    <form class="forms p-3 d-flex flex-column">
                         <div class="m-3">
                             <label for="UsernameLogin" class="form-label"><b>Username</b></label>
                             <input type="text" placeholder="Username" class="form-control" id="usernameLogin">
@@ -97,10 +97,10 @@
                             <label for="passwordLogin" class="form-label"><b>Password</b></label>
                             <input type="password" placeholder="Password" class="form-control" id="passwordLogin">
                         </div>
-
-                        <button type="button" class="btn btn-primary mb-3" id="submitLogin">
-                            Login
-                        </button>
+                        <div class="mt-auto m-3">
+                            <button type="button" class="btn btn-primary mb-3" id="submitLogin">
+                                Login
+                            </button>
 
                     </form>
                 </div>
@@ -119,12 +119,8 @@
             </button>
         </div>
 
-        <div class="p-4 text-center fs-1 text-secondary bg-success-subtle mt-2" id="userBudget">
-            <!-- <input type="text" id="nameInput" placeholder="Enter budget">
-            <br>
-            <button type="submit" class="btn btn-primary mb-3" id="submitBudget">
-                Update Budget
-            </button> -->
+        <div class="text-center text-secondary bg-success-subtle mt-3" id="userBudget">
+            <!-- Coded in JS function5() of Login_Signup.js script-->
         </div>
 
         <!-- Footer for every page for easy linkage to pages and information -->
