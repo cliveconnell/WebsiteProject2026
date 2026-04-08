@@ -4,6 +4,7 @@ submitSignUp.addEventListener("click", function1);  // Complete and works so far
 submitLogin.addEventListener("click", function2); // Checks that username exists and corresponding password matches. 
 clearUserData.addEventListener("click", function3); //Clear user data from local storage
 //submitBudget.addEventListener("click", function4); //Updates and maintains stored budget information for each logged in user - INCOMPLETE
+submitLogout.addEventListener("click", function6);
 
 let myIndex = -1;                                   // Stores users position in array after login
 let loggedIn = localStorage.getItem("loggedIn") === "true" || false;   // Retrieve Boolean for loggedIn from localStorage or set to 'false' if it doesnt exist
@@ -115,8 +116,16 @@ function function4(){
 }
 // function5() is for changing some site elements if logged in
 function function5(){
-    loggedIn = localStorage.getItem("loggedIn") === "true" || false;
+    loggedIn = localStorage.getItem("loggedIn") === "true";
     if (loggedIn === true){
         document.getElementById("userBudget").innerHTML = '<input type="text" id="nameInput" placeholder="Enter budget"><br><button type="submit" class="btn btn-primary m-3" id="submitBudget">Update Budget</button>';
     }
+    else {
+        document.getElementById("userBudget").innerHTML = '';
+    }
+}
+function function6(){
+    loggedIn = false;
+    localStorage.setItem("loggedIn", loggedIn);    // Send loggedIn boolean to local Storage
+    function5();
 }
