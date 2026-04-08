@@ -8,6 +8,7 @@ submitLogout.addEventListener("click", function6);
 
 let myIndex = -1;                                   // Stores users position in array after login
 let loggedIn = localStorage.getItem("loggedIn") === "true" || false;   // Retrieve Boolean for loggedIn from localStorage or set to 'false' if it doesnt exist
+let budgetExists = false;
 function5();
 
 // function1() for Signing Up
@@ -15,7 +16,7 @@ function function1(){
     // How to create Arrays in local storage - Help form "geeksforgeeks" https://www.geeksforgeeks.org/javascript/how-to-store-an-array-in-localstorage/
     const userNamesArray = JSON.parse(localStorage.getItem("userNamesArray")) || []; // userNamesArray initialised with data retrieved from local storage
     const passwordsArray = JSON.parse(localStorage.getItem("passwordsArray")) || []; // passwordsArray initialised with data retrieved from local storage
-    const budgetsArray = JSON.parse(localStorage.getItem("passwordsArray")) || [];
+    const budgetsArray = JSON.parse(localStorage.getItem("budgetsArray")) || [];
     let userName = document.getElementById("username").value; //Retrieve userName from SignUp 
     let email = document.getElementById("email1").value;      //Retrieve email from SignUp
 	let emailCheck = 0;
@@ -65,11 +66,13 @@ function function1(){
         allChecksPassed = false;
 	}
     if (allChecksPassed == true){                      // If allChecksPassed == true, push the userName and password to the array
-    
+            let budget = -1;                      // Budget default set to -1
             userNamesArray.push(userName);        // Pushes userName to userNamesArray
             passwordsArray.push(password);        // Pushes password to passwordsArray corresponding position
+            budgetsArray.push(budget);
             localStorage.setItem("userNamesArray", JSON.stringify(userNamesArray)); //update userNamesArray in local storage, JSON.stringify converts array to a string
             localStorage.setItem("passwordsArray", JSON.stringify(passwordsArray)); //update passwordsArray in local storage
+            localStorage.setItem("budgetsArray", JSON.stringify(budgetsArray));
         
     }
 }
@@ -108,17 +111,76 @@ function function2(){
 // function3() for clearing local storage
 function function3(){
     localStorage.removeItem("userNamesArray"); 
-    localStorage.removeItem("passwordsArray");  
+    localStorage.removeItem("passwordsArray");
+    localStorage.removeItem("budgetsArray");  
 }
 // function4() is EMPTY - for user budget details
-function function4(){
 
+function function4(){
+    
+    let budgetsArray = JSON.parse(localStorage.getItem("budgetsArray")) || [];
+    let myBudget = budgetsArray[myIndex];
+    let myNewBudget = Number(document.getElementById("budgetInput").value);
+    if (budgetExists === false){
+        myBudget = myNewBudget;                                          // If budget is inactive, set new budget
+        }
+    else if (budgetExists === true){
+        myBudget += myNewBudget;                                         // If budget is active, add to existing budget value
+        }
+    budgetsArray[myIndex] = myBudget;
+    localStorage.setItem("budgetsArray", JSON.stringify(budgetsArray));
 }
 // function5() is for changing some site elements if logged in
 function function5(){
+    
+    let myUserBudgetOutput = ``;
     loggedIn = localStorage.getItem("loggedIn") === "true";
-    if (loggedIn === true){
-        document.getElementById("userBudget").innerHTML = '<input type="text" id="nameInput" placeholder="Enter budget"><br><button type="submit" class="btn btn-primary m-3" id="submitBudget">Update Budget</button>';
+    if (loggedIn === true){                                // If a user is logged in, retrieve budgetsArray
+        const budgetsArray = JSON.parse(localStorage.getItem("budgetsArray")) || []; // Get array only after user login to ensure it exists and maintain parallel array integrity
+        let myBudget = budgetsArray[myIndex];
+        if (myBudget == -1){
+            budgetExists = false;
+            myUserBudgetOutput +=
+            `<h3>You have no active budget. Would you like to add one?</h3>
+            <input type="text" id="budgetInput" placeholder="Enter New Budget">
+            <br>
+            <button type="submit" class="btn btn-primary m-3" id="submitNewBudget">
+            Submit Budget
+            </button>`;
+            //document.getElementById("userBudget").innerHTML = myUserBudgetOutput;
+            //document.getElementById("submitNewBudget").onclick = function4;
+        }
+        else if (myBudget > -1){
+            budgetExists = true;
+            myUserBudgetOutput +=
+            `<h3>You have an active budget. Would you like to update it?</h3>
+            <input type="text" id="budgetInput" placeholder="Add to Budget">
+            <br>
+            <button type="submit" class="btn btn-primary m-3" id="submitNewBudget">
+            Add to Budget
+            </button>`;
+            //document.getElementById("userBudget").innerHTML = myUserBudgetOutput;
+            //document.getElementById("submitNewBudget").onclick = function4;
+        }
+            document.getElementById("userBudget").innerHTML = myUserBudgetOutput;
+            submitNewBudget.addEventListener("click", function4);       // Use .onclick so as not to add another event listener each time function5() runs
+            document.getElementById("userBudget").innerHTML += `<table class="table table-bordered" id="tableBudgetTracker">
+
+            </table>`
+            let tableGenerator = 
+            `<thead>
+                <tr>
+                    <th scope="col">+/-</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Value</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>`;
+        
+        document.getElementById("tableBudgetTracker").innerHTML = tableGenerator;
+            
+
     }
     else { // This is where continue as guest feature can go
         document.getElementById("userBudget").innerHTML = '';
