@@ -149,66 +149,72 @@ function function5(){
             myUserBudgetOutput += `<h3>You have an active budget. Would you like to update it?</h3>`
         }
         
-        myUserBudgetOutput += `<input type="text" id="budgetInput" placeholder="Add/Update Budget">
+        document.getElementById("userBudget").innerHTML = myUserBudgetOutput + `<input type="text" id="budgetInput" placeholder="Add/Update Budget">
             <br>
-            <button type="submit" class="btn btn-primary m-3" id="submitNewBudget">
+            <button type="button" class="btn btn-primary m-3" id="submitNewBudget">
             Add/Update Budget
             </button>
-            <table class="table table-bordered" id="tableAddTransaction">
-                <form class="forms fs-1 bg-light text-secondary-emphasis text-center">
-                    <tr class="bg-light text-secondary-emphasis text-center">
-                        <td class="m-3"><b>Transaction: </b></td>
-                        <td class="m-3">
+            <div>
+                <form class="forms p-3 d-flex flex-column">
+                        <div class="m-3 text-success-emphasis">
                             <label for="expense/income"><b>Expense(-)/Income(+)</b></label>
-                            <br>
-                            <br>
-                            <select name="Expense/Income" id="expenseIncome">
+                            <select class="bg-light" name="Expense/Income" id="expenseIncome">
                                 <option value="expense">-</option>
                                 <option value="income">+</option>
                             </select>
-                        </td>                                 
-                        <td class="m-3">
+                        </div>
+                        <div class="m-3 text-success-emphasis">
                             <label for="category"><b>Select Category</b></label>
-                            <br>
-                            <br>
                             <select name="Category" id="category">
                                 <option value="essential">Essential</option>
                                 <option value="nonEssential">Non-Essential</option>
                                 <option value="luxury">Luxury</option>
                             </select>
-                            </td>
-                        <td class="m-3">
+                        </div>
+                        <div class="m-3 text-success-emphasis">
                             <label for="value" class="form-label"><b>Value</b></label>
-                            <input type="text" placeholder="value" class="form-control" id="value">    
-                        </td>
-                    </tr>
-                
+                            <input type="text" placeholder="value" class="form-control" id="value">
+                        </div>
+                        <div class="text-success-emphasis">
+                            <button type="button" class="btn btn-primary mb-3" id="addTransaction">
+                                Add Transaction
+                            </button>
+                        </div>
                 </form>
-            </table>`;
 
-        document.getElementById("userBudget").innerHTML = myUserBudgetOutput;
+                <table class="table table-bordered" id="tableBudgetTracker">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">+/-</th>                                 
+                            <th scope="col">Category</th>
+                            <th scope="col">Value</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                    </tbody>
+            </div>`;
+
         document.getElementById("submitNewBudget").onclick = function4;       // Use .onclick so as not to add another event listener each time function5() runs
         
-        // Generate Budget Table of transactions dynamically with JS
-        document.getElementById("userBudget").innerHTML += `<table class="table table-bordered" id="tableBudgetTracker">
-        
-            </table>`;
-            // Table Header, column names, table content
-            let tableContent = ``;
-            let tableGenerator = 
-            `<thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">+/-</th>                                 
-                    <th scope="col">Category</th>
-                    <th scope="col">Value</th>
-                </tr>
-            </thead>
-            <tbody>` + tableContent + `
-            </tbody>`;
-        
-        document.getElementById("tableBudgetTracker").innerHTML = tableGenerator;
+        let rowIndex = 1;
+        document.getElementById("addTransaction").onclick = function5a;
+        function function5a(){
+            console.log("clicked");
+            console.log(document.getElementById("tableBody"));
+            let transExpIncome = document.getElementById("expenseIncome").value;
+            let transCategory = document.getElementById("category").value;
+            let transValue = document.getElementById("value").value;
             
+            let newRow = 
+                `<tr>
+                    <td>` + rowIndex++ + `</td>
+                    <td>` + transExpIncome + `</td>                                 
+                    <td>` + transCategory + `</td>
+                    <td>` + transValue + `</td>
+                </tr>`;
+            document.getElementById("tableBody").insertAdjacentHTML("beforeend", newRow);
+        }
 
     }
     else { // This is where continue as guest feature can go
