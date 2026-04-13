@@ -49,14 +49,16 @@
             </div>
         </nav>
 
+        <!-- Got help with the error message styling from https://getbootstrap.com/docs/5.3/components/alerts/ -->
+
         <!-- Form is used for entering the weekly budget amount -->
         <div class="bg-success-subtle mt-3">
             <form class="m-3" id="addWeeklyBudgetForm">
                 <h4 class="text-center">Add Weekly Budget Amount</h4>
                 <!-- Form is valid show a success message -->
-                <p class="bg-success text-white" id="addBudgetSuccess"></p>
+                <p class="alert alert-success d-none py-2 px-3 rounded" id="addBudgetSuccess"></p>
                 <!-- Warning message for invalid field -->
-                <p class="bg-danger text-white" id="addBudgetWarning"></p>
+                <p class="alert alert-danger d-none py-2 px-3 rounded" id="addBudgetWarning"></p>
                 <!-- Form field for entering weekly budget with a placeholder to help users-->
                 <div class="m-3">
                     <label for="enterBudget" class="form-label inputBudgetLabel">Weekly Budget</label>
@@ -76,9 +78,9 @@
             <form class="m-3" id="budgetForm">
                 <h4 class="text-center">Add Transaction</h4>
                 <!-- Form is valid show a success message -->
-                <p class="bg-success text-white" id="successMessage"></p>
+                <div class="alert alert-success d-none py-2 px-3 rounded" id="successMessage"></div>
                 <!-- Warning message for invalid field -->
-                <p class="bg-danger text-white" id="descWarning"></p>
+                <div class="alert alert-danger d-none py-2 px-3 rounded" id="descWarning"></div>
                 <!-- Form field for entering description of budget item with a placeholder to help users-->
                 <div class="m-3">
                     <label for="description" class="form-label inputBudgetLabel">Description</label>
@@ -86,7 +88,7 @@
                 </div>
 
                 <!-- Warning message for invalid field -->
-                <p class="bg-danger text-white" id="amountWarning"></p>
+                <div class="alert alert-danger d-none py-2 px-3 rounded" id="amountWarning"></div>
                 <!-- Form field for entering amount for the budget item with a placeholder to help users-->
                 <div class="m-3">
                     <label for="amount" class="form-label inputBudgetLabel">Amount</label>
@@ -94,7 +96,7 @@
                 </div>
 
                 <!-- Warning message for invalid field -->
-                <p class="bg-danger text-white" id="typeWarning"></p>
+                <div class="alert alert-danger d-none py-2 px-3 rounded" id="typeWarning"></div>
                 <!-- Form field for selecting either income or expense with a placeholder to help users-->
                 <div class="m-3">
                     <label for="type" class="form-label inputBudgetLabel">Type</label>

@@ -21,18 +21,27 @@ document.getElementById("budgetForm").addEventListener("submit", function (event
     typeWarning.innerHTML = "";
     successMessage.innerHTML = "";
 
+    // Hides wanring using d-none class
+    descWarning.classList.add("d-none");
+    amountWarning.classList.add("d-none");
+    typeWarning.classList.add("d-none");
+    successMessage.classList.add("d-none");
+
 
     // If form fields are blank or not selected show the error message until resolved
     if (description === "") {
         descWarning.innerHTML = "Enter a description.";
+        descWarning.classList.remove("d-none");
         isValid = false;
     }
     if (amount === "" || Number(amount) <= 0) {
         amountWarning.innerHTML = "Enter a valid positive amount.";
+        amountWarning.classList.remove("d-none");
         isValid = false;
     }
     if (type === "") {
-        typeWarning.innerHTML = "Select an option";
+        typeWarning.innerHTML = "Select an option.";
+        typeWarning.classList.remove("d-none");
         isValid = false;
     }
 
@@ -58,14 +67,18 @@ document.getElementById("budgetForm").addEventListener("submit", function (event
         // Save count
         sessionStorage.count = count;
 
-
+        // Shows the success message as Transaction added
         successMessage.innerHTML = "Transaction added!";
+        // Hides wanring using d-none class
+        successMessage.classList.remove("d-none");
+
 
         /* Help from https://www.w3schools.com/jsref/met_win_setTimeout.asp
         Resets the form and removes the success message after 2 seconds */
         setTimeout(function () {
             document.getElementById("budgetForm").reset();
             successMessage.innerHTML = "";
+            successMessage.classList.add("d-none");
         }, 2000);
     }
 })
@@ -87,21 +100,28 @@ document.getElementById("addWeeklyBudgetForm").addEventListener("submit", functi
     addBudgetSuccess.innerHTML = "";
     addBudgetWarning.innerHTML = "";
 
+    // Hides wanring using d-none class
+    addBudgetSuccess.classList.add("d-none");
+    addBudgetWarning.classList.add("d-none");
+
 
     // If form fields are blank or not selected show the error message until resolved
     if (weeklyBudget === "" || Number(weeklyBudget) <= 0) {
-        addBudgetWarning.innerHTML = "Enter a positve weekly budget";
+        addBudgetWarning.innerHTML = "Enter a positve weekly budget.";
+        addBudgetWarning.classList.remove("d-none");
     } else {
         // Store weekly budget in session storage
         sessionStorage.weeklyBudget = weeklyBudget
 
         // change blank <p> to a success message.
         addBudgetSuccess.innerHTML = "Weekly budget added.";
+        addBudgetSuccess.classList.remove("d-none");
 
         // Clear the form after 2 seconds.
         setTimeout(function () {
             document.getElementById("addWeeklyBudgetForm").reset();
             addBudgetSuccess.innerHTML = "";
+            addBudgetSuccess.classList.add("d-none");
         }, 2000);
 
     }
