@@ -92,7 +92,7 @@ function read() {
     if (output == "") {
         document.getElementById("budgetOutline").innerHTML = "No budget information added.";
     } else {
-        // Use the card from above and display it on index.html using the ID
+        // Use the card from above and display it on budgetOutline.html using the ID
         document.getElementById("budgetOutline").innerHTML = output;
     }
 }
