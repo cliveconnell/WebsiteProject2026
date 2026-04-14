@@ -1,3 +1,6 @@
+// Author: Clive
+// Description: Created to validate input fields and show validation alerts
+
 /* Validation for Contact Us form fields. If the value 
 is incorrect, change the blank <p> to use the inner.html message */
 document.getElementById("contactForm").addEventListener("submit", function (event) {

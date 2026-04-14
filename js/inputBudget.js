@@ -1,3 +1,6 @@
+// Author: Clive
+// Description: Created to handle weekly budget input, transaction validation, alerts and storage
+
 /* Validation for Input Budget page field. If the value 
 is incorrect, change the blank <p> to use the inner.html message */
 document.getElementById("budgetForm").addEventListener("submit", function (event) {
@@ -107,7 +110,7 @@ document.getElementById("addWeeklyBudgetForm").addEventListener("submit", functi
 
     // If form fields are blank or not selected show the error message until resolved
     if (weeklyBudget === "" || Number(weeklyBudget) <= 0) {
-        addBudgetWarning.innerHTML = "Enter a positve weekly budget.";
+        addBudgetWarning.innerHTML = "Enter a positive weekly budget.";
         addBudgetWarning.classList.remove("d-none");
     } else {
         // Store weekly budget in session storage

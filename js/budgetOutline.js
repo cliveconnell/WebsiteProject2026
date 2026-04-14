@@ -1,3 +1,6 @@
+// Author: Clive
+// Description: Created to show the saved budget info and show it on the budgetOutline.html
+
 // Function will display the weekly budget from session storage and display it on the page
 
 function displayWeeklyBudget() {
@@ -5,7 +8,7 @@ function displayWeeklyBudget() {
     let resetBudgetButton = document.getElementById("resetBudgetButton")
 
     if (weeklyBudget === undefined || weeklyBudget == 0) {
-        document.getElementById("addWeeklyBudgetDisplay").innerHTML = "No weekly Budget information added.";
+        document.getElementById("addWeeklyBudgetDisplay").innerHTML = "No weekly budget has been added.";
         // if no budget, hide the reset button
         resetBudgetButton.style.display = "none";
     } else {
@@ -27,7 +30,7 @@ function read() {
 
     // When count is 0, show the message instead of null/undefined
     if (!count) {
-        document.getElementById("budgetOutline").innerHTML = "No budget information added.";
+        document.getElementById("budgetOutline").innerHTML = "No transactions have been added yet.";
         return;
     }
 
@@ -90,7 +93,7 @@ function read() {
 
     // If all the entries were deleted show the below message
     if (output == "") {
-        document.getElementById("budgetOutline").innerHTML = "No budget information added.";
+        document.getElementById("budgetOutline").innerHTML = "No transactions have been added yet.";
     } else {
         // Use the card from above and display it on budgetOutline.html using the ID
         document.getElementById("budgetOutline").innerHTML = output;
