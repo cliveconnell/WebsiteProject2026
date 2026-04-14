@@ -31,6 +31,18 @@ function read() {
     // When count is 0, show the message instead of null/undefined
     if (!count) {
         document.getElementById("budgetOutline").innerHTML = "No transactions have been added yet.";
+
+        let weeklyBudget = Number(sessionStorage.weeklyBudget);
+
+        if (weeklyBudget > 0) {
+            document.getElementById("remainingBudget").innerHTML = "Remaining Budget: €" + weeklyBudget;
+            document.getElementById("totalIncome").innerHTML = "Total Income: €0";
+            document.getElementById("totalExpenses").innerHTML = "Total Expenses: €0";
+        } else {
+            document.getElementById("remainingBudget").innerHTML = "";
+            document.getElementById("totalIncome").innerHTML = "";
+            document.getElementById("totalExpenses").innerHTML = "";
+        }
         return;
     }
 
@@ -84,10 +96,15 @@ function read() {
     let weeklyBudget = Number(sessionStorage.weeklyBudget);
 
     if (weeklyBudget > 0) {
+        document.getElementById("totalIncome").innerHTML = "Total Income: €" + totalIncome;
+        document.getElementById("totalExpenses").innerHTML = "Total Expenses: €" + totalExpenses;
+
         let remainingAmount = weeklyBudget + totalIncome - totalExpenses;
         document.getElementById("remainingBudget").innerHTML = "Remaining Budget: €" + remainingAmount;
     } else {
         document.getElementById("remainingBudget").innerHTML = "";
+        document.getElementById("totalIncome").innerHTML = "";
+        document.getElementById("totalExpenses").innerHTML = "";
     }
 
 
