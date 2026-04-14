@@ -64,3 +64,9 @@
 .expense-card {
     border-left: 6px solid red;
 }
+
+/* Change background colour and text of success messages */
+.alert-bg-colour {
+    background-color: green;
+    color: white;
+}
