@@ -1,6 +1,8 @@
 // Author: Clive
 // Description: Created to handle weekly budget input, transaction validation, alerts and storage
 
+// For trim() (Removes spaces from start and end of input field) got help from https://www.w3schools.com/Jsref/jsref_trim_string.asp
+
 /* Validation for Input Budget page field. If the value 
 is incorrect, change the blank <p> to use the inner.html message */
 document.getElementById("budgetForm").addEventListener("submit", function (event) {
@@ -9,8 +11,8 @@ document.getElementById("budgetForm").addEventListener("submit", function (event
 
     // Get user input values and store warning messages
     let isValid = true;
-    let description = document.getElementById("description").value;
-    let amount = document.getElementById("amount").value;
+    let description = document.getElementById("description").value.trim();
+    let amount = document.getElementById("amount").value.trim();
     let type = document.getElementById("type").value;
 
     let descWarning = document.getElementById("descWarning");
@@ -94,7 +96,7 @@ document.getElementById("addWeeklyBudgetForm").addEventListener("submit", functi
 
 
     // Get user input values and store warning messages
-    let weeklyBudget = document.getElementById("enterBudget").value;
+    let weeklyBudget = document.getElementById("enterBudget").value.trim();
     let addBudgetSuccess = document.getElementById("addBudgetSuccess");
     let addBudgetWarning = document.getElementById("addBudgetWarning");
 

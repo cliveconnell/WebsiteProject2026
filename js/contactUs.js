@@ -1,6 +1,8 @@
 // Author: Clive
 // Description: Created to validate input fields and show validation alerts
 
+// For trim() (Removes spaces from start and end of input field) got help from https://www.w3schools.com/Jsref/jsref_trim_string.asp
+
 /* Validation for Contact Us form fields. If the value 
 is incorrect, change the blank <p> to use the inner.html message */
 document.getElementById("contactForm").addEventListener("submit", function (event) {
@@ -9,9 +11,9 @@ document.getElementById("contactForm").addEventListener("submit", function (even
 
     // Get user input values and store warning messages
     let isValid = true;
-    let firstName = document.getElementById("firstName").value;
-    let surname = document.getElementById("surname").value;
-    let email = document.getElementById("email").value;
+    let firstName = document.getElementById("firstName").value.trim();
+    let surname = document.getElementById("surname").value.trim();
+    let email = document.getElementById("email").value.trim();
     let contactReason = document.getElementById("contactReason").value;
 
     let firstNameWarning = document.getElementById("firstNameWarning");
