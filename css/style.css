@@ -29,22 +29,22 @@
     left: 2rem;    /* distance from left */
 }
 
-/* Centers the contact form submit button */
+/* Centers the contact form submit button Author: Clive */
 .contactButton {
     text-align: center;
 }
 
-/* Changes the contact form labels to bold */
+/* Changes the contact form labels to bold Author: Clive */
 .contactLabel {
     font-weight: bold;
 }
 
-/* Changes the input budget form labels to bold */
+/* Changes the input budget form labels to bold Author: Clive */
 .inputBudgetLabel {
     font-weight: bold
 }
 
-/* Centers the input budget form submit button */
+/* Centers the input budget form submit button Author: Clive */
 .inputBudgetButton {
     text-align: center;
 }
@@ -55,17 +55,17 @@
     width: 2%;
 }
 
-/* Add green to the left side of the card to show income */
+/* Add green to the left side of the card to show income Author: Clive */
 .income-card {
     border-left: 6px solid green;
 }
 
-/* Add red to the left side of the card to show expense */
+/* Add red to the left side of the card to show expense Author: Clive */
 .expense-card {
     border-left: 6px solid red;
 }
 
-/* Change background colour and text of success messages */
+/* Change background colour and text of success messages Author: Clive */
 .alert-bg-colour {
     background-color: green;
     color: white;
