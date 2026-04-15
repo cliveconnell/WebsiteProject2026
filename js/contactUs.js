@@ -4,7 +4,7 @@
 // For trim() (Removes spaces from start and end of input field) got help from https://www.w3schools.com/Jsref/jsref_trim_string.asp
 
 /* Validation for Contact Us form fields. If the value 
-is incorrect, change the blank <p> to use the inner.html message */
+is incorrect, change the blank <p> to use the innerHTML message */
 document.getElementById("contactForm").addEventListener("submit", function (event) {
     event.preventDefault();
 
@@ -29,7 +29,7 @@ document.getElementById("contactForm").addEventListener("submit", function (even
     descWarning.innerHTML = "";
     successMessage.innerHTML = "";
     
-    // Hides wanring using d-none class
+    // Hides warning using d-none class
     firstNameWarning.classList.add("d-none");
     surnameWarning.classList.add("d-none");
     emailWarning.classList.add("d-none");

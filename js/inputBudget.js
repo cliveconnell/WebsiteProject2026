@@ -4,7 +4,7 @@
 // For trim() (Removes spaces from start and end of input field) got help from https://www.w3schools.com/Jsref/jsref_trim_string.asp
 
 /* Validation for Input Budget page field. If the value 
-is incorrect, change the blank <p> to use the inner.html message */
+is incorrect, change the blank <p> to use the innerHTML message */
 document.getElementById("budgetForm").addEventListener("submit", function (event) {
     event.preventDefault();
 
@@ -26,7 +26,7 @@ document.getElementById("budgetForm").addEventListener("submit", function (event
     typeWarning.innerHTML = "";
     successMessage.innerHTML = "";
 
-    // Hides wanring using d-none class
+    // Hides warning using d-none class
     descWarning.classList.add("d-none");
     amountWarning.classList.add("d-none");
     typeWarning.classList.add("d-none");
@@ -74,7 +74,7 @@ document.getElementById("budgetForm").addEventListener("submit", function (event
 
         // Shows the success message as Transaction added
         successMessage.innerHTML = "Transaction added!";
-        // Hides wanring using d-none class
+        // Hides warning using d-none class
         successMessage.classList.remove("d-none");
 
 
@@ -105,7 +105,7 @@ document.getElementById("addWeeklyBudgetForm").addEventListener("submit", functi
     addBudgetSuccess.innerHTML = "";
     addBudgetWarning.innerHTML = "";
 
-    // Hides wanring using d-none class
+    // Hides warning using d-none class
     addBudgetSuccess.classList.add("d-none");
     addBudgetWarning.classList.add("d-none");
 

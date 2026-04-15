@@ -54,7 +54,7 @@ function read() {
     // Loop through all values
     for (let i = 1; i <= count; i++) {
 
-        // Example desctiption 1, next loop stores as description 2 (Allows multiple cards to display)
+        // Example description 1, next loop stores as description 2 (Allows multiple cards to display)
         let description = sessionStorage["description" + i];
         let amount = sessionStorage["amount" + i];
         let type = sessionStorage["type" + i];
@@ -92,7 +92,7 @@ function read() {
             `;
     }
 
-    // Calulate the reminaing budget (Only if weekly budget exists)
+    // Calculate the remaining budget (Only if weekly budget exists)
     let weeklyBudget = Number(sessionStorage.weeklyBudget);
 
     if (weeklyBudget > 0) {
