@@ -9,17 +9,17 @@ submitLogout.addEventListener("click", function6);
 let myIndex = -1;                                   // Stores users position in array after login
 let loggedIn = localStorage.getItem("loggedIn") === "true" || false;   // Retrieve Boolean for loggedIn from localStorage or set to 'false' if it doesnt exist
 let budgetExists = false;
-function5();
+function5(); // Runs on page opening to determine if there is a user logged in - NOT FULLY FUNCTIONING, EXPLAINED IN VIDEO AUTHOR: KEITH JORDAN
 
 // function1() for Signing Up
 function function1(){
     // How to create Arrays in local storage - Help form "geeksforgeeks" https://www.geeksforgeeks.org/javascript/how-to-store-an-array-in-localstorage/
     const userNamesArray = JSON.parse(localStorage.getItem("userNamesArray")) || []; // userNamesArray initialised with data retrieved from local storage
     const passwordsArray = JSON.parse(localStorage.getItem("passwordsArray")) || []; // passwordsArray initialised with data retrieved from local storage
-    const budgetsArray = JSON.parse(localStorage.getItem("budgetsArray")) || [];
+    const budgetsArray = JSON.parse(localStorage.getItem("budgetsArray")) || []; // budgetsArray initialised with data retrieved from local storage - NON FUNCTIONING AUTHOR KEITH JORDAN
     let userName = document.getElementById("username").value; //Retrieve userName from SignUp 
     let email = document.getElementById("email1").value;      //Retrieve email from SignUp
-	let emailCheck = 0;
+	let emailCheck = 0; // initialise emailCheck with value 0 upon button click
     let password = document.getElementById("password1").value; //Retrieve password from Signup
 	let passwordConfirm = document.getElementById("passwordConfirm").value; // Retrieve Confirm Password from Signup
     let allChecksPassed = true;    // allChecksPassed will be set to False if any validation checks are failed
@@ -117,7 +117,8 @@ function function3(){
 // function4() is EMPTY - for user budget details
 
 function function4(){
-    
+    // NON FUNCTIONING FEATURE - TABLE OF BUDGET TRANSACTIONS - EXPLAINED IN VIDEO
+    // Would ask user to input a budget amount or amount to add to current budget
     let budgetsArray = JSON.parse(localStorage.getItem("budgetsArray")) || [];
     let myBudget = budgetsArray[myIndex];
     let myNewBudget = Number(document.getElementById("budgetInput").value);
@@ -130,11 +131,12 @@ function function4(){
     budgetsArray[myIndex] = myBudget;
     localStorage.setItem("budgetsArray", JSON.stringify(budgetsArray));
 }
-// function5() is for changing some site elements if logged in
+// function5() is for determining if a user is logged in changing some site elements accordingly
+// Also for dynamically updating the partially functioning budget table
 function function5(){
     
     let myUserBudgetOutput = ``;
-    loggedIn = localStorage.getItem("loggedIn") === "true";
+    loggedIn = localStorage.getItem("loggedIn") === "false"; // If a user has never logged in set to false
     if (loggedIn === true){                                // If a user is logged in, retrieve budgetsArray
         const budgetsArray = JSON.parse(localStorage.getItem("budgetsArray")) || []; // Get array only after user login to ensure it exists and maintain parallel array integrity
         let myBudget = budgetsArray[myIndex];
@@ -221,6 +223,7 @@ function function5(){
         document.getElementById("userBudget").innerHTML = '';
     }
 }
+// LOGOUT FUNCTION
 function function6(){
     loggedIn = false;
     localStorage.setItem("loggedIn", loggedIn);    // Send loggedIn boolean to local Storage
