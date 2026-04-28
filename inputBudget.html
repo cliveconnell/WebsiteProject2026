@@ -1,3 +1,6 @@
+<!-- Author: Clive 
+ Description: Created the input budget page layout, forms and nav -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,7 +23,7 @@
         <div class="p-4 text-center fs-1 text-secondary bg-success-subtle mt-2">Budget Tracker</div>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid text-secondary bg-success-subtle mt-2">
-                <a class="navbar-brand nav-link disabled" aria-disabled="true" href="#">Pages</a>
+                <a class="navbar-brand nav-link disabled" aria-disabled="true">Pages</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -28,16 +31,16 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link container-fluid mt-2" href="Home.html">Home</a>
+                            <a class="nav-link container-fluid mt-2" href="index.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link container-fluid mt-2" href="index.html">Budget Outlined</a>
+                            <a class="nav-link container-fluid mt-2" href="budgetSummary.html">Budget Summary</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active container-fluid mt-2" href="#">Input Budget</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link container-fluid mt-2" href="BTPage3.html">Contact Us</a>
+                            <a class="nav-link container-fluid mt-2" href="contact.html">Contact Us</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav">
@@ -49,14 +52,16 @@
             </div>
         </nav>
 
+        <!-- Got help with the error message styling from https://getbootstrap.com/docs/5.3/components/alerts/ -->
+
         <!-- Form is used for entering the weekly budget amount -->
         <div class="bg-success-subtle mt-3">
             <form class="m-3" id="addWeeklyBudgetForm">
                 <h4 class="text-center">Add Weekly Budget Amount</h4>
                 <!-- Form is valid show a success message -->
-                <p class="bg-success text-white" id="addBudgetSuccess"></p>
+                <p class="alert-bg-colour d-none py-2 px-3 rounded" id="addBudgetSuccess"></p>
                 <!-- Warning message for invalid field -->
-                <p class="bg-danger text-white" id="addBudgetWarning"></p>
+                <p class="alert alert-danger d-none py-2 px-3 rounded" id="addBudgetWarning"></p>
                 <!-- Form field for entering weekly budget with a placeholder to help users-->
                 <div class="m-3">
                     <label for="enterBudget" class="form-label inputBudgetLabel">Weekly Budget</label>
@@ -64,7 +69,7 @@
                 </div>
                 <!-- Using style.css to center the submit button -->
                 <div class="inputBudgetButton">
-                    <a href="index.html" class="btn btn-primary">View Budget</a>
+                    <a href="budgetSummary.html" class="btn btn-primary">View Budget</a>
                     <button type="submit" class="btn btn-primary">Add</button>
                 </div>
                 <br>
@@ -76,9 +81,9 @@
             <form class="m-3" id="budgetForm">
                 <h4 class="text-center">Add Transaction</h4>
                 <!-- Form is valid show a success message -->
-                <p class="bg-success text-white" id="successMessage"></p>
+                <div class="alert-bg-colour d-none py-2 px-3 rounded" id="successMessage"></div>
                 <!-- Warning message for invalid field -->
-                <p class="bg-danger text-white" id="descWarning"></p>
+                <div class="alert alert-danger d-none py-2 px-3 rounded" id="descWarning"></div>
                 <!-- Form field for entering description of budget item with a placeholder to help users-->
                 <div class="m-3">
                     <label for="description" class="form-label inputBudgetLabel">Description</label>
@@ -86,7 +91,7 @@
                 </div>
 
                 <!-- Warning message for invalid field -->
-                <p class="bg-danger text-white" id="amountWarning"></p>
+                <div class="alert alert-danger d-none py-2 px-3 rounded" id="amountWarning"></div>
                 <!-- Form field for entering amount for the budget item with a placeholder to help users-->
                 <div class="m-3">
                     <label for="amount" class="form-label inputBudgetLabel">Amount</label>
@@ -94,7 +99,7 @@
                 </div>
 
                 <!-- Warning message for invalid field -->
-                <p class="bg-danger text-white" id="typeWarning"></p>
+                <div class="alert alert-danger d-none py-2 px-3 rounded" id="typeWarning"></div>
                 <!-- Form field for selecting either income or expense with a placeholder to help users-->
                 <div class="m-3">
                     <label for="type" class="form-label inputBudgetLabel">Type</label>
@@ -109,7 +114,7 @@
 
                 <!-- Using style.css to center the submit button -->
                 <div class="inputBudgetButton">
-                    <a href="index.html" class="btn btn-primary">View Budget</a>
+                    <a href="budgetSummary.html" class="btn btn-primary">View Budget</a>
                     <button type="submit" class="btn btn-primary">Add</button>
                 </div>
                 <br>
@@ -123,10 +128,10 @@
                 <h5 class="card-title">Budget Tracker</h5>
 
                 <!-- Nav links -->
-                <a class="text-black text-decoration-none me-2" href="home.html">Home</a>
-                <a class="text-black text-decoration-none me-2" href="index.html">Budget Outlined</a>
-                <a class="text-black text-decoration-none me-2" href="BTPage2.html">Input Expenses</a>
-                <a class="text-black text-decoration-none" href="BTPage3.html">Contact Us</a>
+                <a class="text-black text-decoration-none me-2" href="index.html">Home</a>
+                <a class="text-black text-decoration-none me-2" href="budgetSummary.html">Budget Summary</a>
+                <a class="text-black text-decoration-none me-2" href="inputBudget.html">Input Budget</a>
+                <a class="text-black text-decoration-none" href="contact.html">Contact Us</a>
 
                 <!-- Horizontal Rule -->
                 <hr>

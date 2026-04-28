@@ -1,3 +1,6 @@
+// Author: Clive
+// Description: Created to show the saved budget info and show it on the budgetOutline.html
+
 // Function will display the weekly budget from session storage and display it on the page
 
 function displayWeeklyBudget() {
@@ -5,7 +8,7 @@ function displayWeeklyBudget() {
     let resetBudgetButton = document.getElementById("resetBudgetButton")
 
     if (weeklyBudget === undefined || weeklyBudget == 0) {
-        document.getElementById("addWeeklyBudgetDisplay").innerHTML = "No weekly Budget information added.";
+        document.getElementById("addWeeklyBudgetDisplay").innerHTML = "No weekly budget has been added.";
         // if no budget, hide the reset button
         resetBudgetButton.style.display = "none";
     } else {
@@ -27,7 +30,19 @@ function read() {
 
     // When count is 0, show the message instead of null/undefined
     if (!count) {
-        document.getElementById("budgetOutline").innerHTML = "No budget information added.";
+        document.getElementById("budgetOutline").innerHTML = "No transactions have been added yet.";
+
+        let weeklyBudget = Number(sessionStorage.weeklyBudget);
+
+        if (weeklyBudget > 0) {
+            document.getElementById("remainingBudget").innerHTML = "Remaining Budget: €" + weeklyBudget;
+            document.getElementById("totalIncome").innerHTML = "Total Income: €0";
+            document.getElementById("totalExpenses").innerHTML = "Total Expenses: €0";
+        } else {
+            document.getElementById("remainingBudget").innerHTML = "";
+            document.getElementById("totalIncome").innerHTML = "";
+            document.getElementById("totalExpenses").innerHTML = "";
+        }
         return;
     }
 
@@ -39,7 +54,7 @@ function read() {
     // Loop through all values
     for (let i = 1; i <= count; i++) {
 
-        // Example desctiption 1, next loop stores as description 2 (Allows multiple cards to display)
+        // Example description 1, next loop stores as description 2 (Allows multiple cards to display)
         let description = sessionStorage["description" + i];
         let amount = sessionStorage["amount" + i];
         let type = sessionStorage["type" + i];
@@ -77,22 +92,27 @@ function read() {
             `;
     }
 
-    // Calulate the reminaing budget (Only if weekly budget exists)
+    // Calculate the remaining budget (Only if weekly budget exists)
     let weeklyBudget = Number(sessionStorage.weeklyBudget);
 
     if (weeklyBudget > 0) {
+        document.getElementById("totalIncome").innerHTML = "Total Income: €" + totalIncome;
+        document.getElementById("totalExpenses").innerHTML = "Total Expenses: €" + totalExpenses;
+
         let remainingAmount = weeklyBudget + totalIncome - totalExpenses;
         document.getElementById("remainingBudget").innerHTML = "Remaining Budget: €" + remainingAmount;
     } else {
         document.getElementById("remainingBudget").innerHTML = "";
+        document.getElementById("totalIncome").innerHTML = "";
+        document.getElementById("totalExpenses").innerHTML = "";
     }
 
 
     // If all the entries were deleted show the below message
     if (output == "") {
-        document.getElementById("budgetOutline").innerHTML = "No budget information added.";
+        document.getElementById("budgetOutline").innerHTML = "No transactions have been added yet.";
     } else {
-        // Use the card from above and display it on index.html using the ID
+        // Use the card from above and display it on budgetOutline.html using the ID
         document.getElementById("budgetOutline").innerHTML = output;
     }
 }

@@ -31,16 +31,16 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link container-fluid mt-2" href="Home.html">Home</a>
+                            <a class="nav-link active container-fluid mt-2" href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active container-fluid mt-2" href="#">Budget Outlined</a>
+                            <a class="nav-link container-fluid mt-2" href="budgetSummary.html">Budget Summary</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link container-fluid mt-2" href="BTPage2.html">Input Budget</a>
+                            <a class="nav-link container-fluid mt-2" href="inputBudget.html">Input Budget</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link container-fluid mt-2" href="BTPage3.html">Contact Us</a>
+                            <a class="nav-link container-fluid mt-2" href="contact.html">Contact Us</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav">
@@ -51,27 +51,42 @@
                 </div>
             </div>
         </nav>
+        <h3 class="text-center text-secondary bg-success-subtle"> Welcome to the Budget Tracker</h3>
+        <div id="carouselExample" class="carousel slide bg-success-subtle" data-bs-ride="true">
+            <!--data-bs-ride = false prevents auto slide-->
+            <div id="carouselExampleInner" class="carousel-inner text-center text-secondary">
+                <div class="carousel-item active p-3"> <!--carousel-item active sets this item as active-->
+                    <h2>What is a Budget?</h2> <!-- p-3 over m-3 for padding over margin, m-3 was off-->
+                    <img class="homeImages" src="images/BudgetDef.jpg" alt="">
+                </div>
+                <div class="carousel-item p-3">
+                    <h2>Make a Plan</h2>
+                    <img class="homeImages" src="images/Budget1.png" alt="">
+                </div>
+                <div class="carousel-item p-3">
+                    <h2>Monitor Progress</h2>
+                    <img class="homeImages" src="images/BudgetList.jpg" alt="">
+                </div>
+                <div class="carousel-item p-3">
+                    <h2>Stay on Track</h2>
+                    <img class="homeImages" src="images/BudgetRules.jpg" alt="">
+                </div>
+                <div class="carousel-item p-3">
+                    <h2>Build Savings</h2>
+                    <img class="homeImages" src="images/Piggy Bank.jpg" alt="">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
 
-        <!-- Weekly Budget information card-->
-        <div class="bg-success-subtle mt-3 pt-3">
-            <h4 class="text-center">Weekly Budget</h4>
-            <p id="addWeeklyBudgetDisplay"></p>
-            <p id="remainingBudget"></p>
 
-            <button class="btn btn-sm btn-danger" id="resetBudgetButton" onclick="resetWeeklyBudget()">
-                Reset
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
             </button>
         </div>
-
-
-        <!-- Budget information cards -->
-        <div class="bg-success-subtle mt-3 pt-3">
-            <h4 class="text-center">Budget Outlined</h4>
-            <div id="budgetOutline"></div>
-        </div>
-
-
-
         <!-- Footer for every page for easy linkage to pages and information -->
         <div class="card bg-success-subtle mt-3">
             <div class="card-body text-center">
@@ -79,10 +94,10 @@
                 <h5 class="card-title">Budget Tracker</h5>
 
                 <!-- Nav links -->
-                <a class="text-black text-decoration-none me-2" href="Home.html">Home</a>
-                <a class="text-black text-decoration-none me-2" href="index.html">Budget Outlined</a>
-                <a class="text-black text-decoration-none me-2" href="BTPage2.html">Input Expenses</a>
-                <a class="text-black text-decoration-none" href="BTPage3.html">Contact Us</a>
+                 <a class="text-black text-decoration-none me-2" href="index.html">Home</a>
+                <a class="text-black text-decoration-none me-2" href="budgetSummary.html">Budget Summary</a>
+                <a class="text-black text-decoration-none me-2" href="inputBudget.html">Input Budget</a>
+                <a class="text-black text-decoration-none" href="contact.html">Contact Us</a>
 
                 <!-- Horizontal Rule -->
                 <hr>
@@ -93,9 +108,4 @@
             </div>
         </div>
     </div>
-
-    <!-- External Style Sheet -->
-    <script src="js/index.js"></script>
 </body>
-
-</html>

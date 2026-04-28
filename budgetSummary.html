@@ -1,3 +1,6 @@
+<!-- Author: Clive
+ Description: Created the budget outline page layout for showing saved budget info -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,16 +34,16 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link active container-fluid mt-2" href="#">Home</a>
+                            <a class="nav-link container-fluid mt-2" href="index.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link container-fluid mt-2" href="index.html">Budget Outlined</a>
+                            <a class="nav-link active container-fluid mt-2" href="#">Budget Summary</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link container-fluid mt-2" href="BTPage2.html">Input Budget</a>
+                            <a class="nav-link container-fluid mt-2" href="inputBudget.html">Input Budget</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link container-fluid mt-2" href="BTPage3.html">Contact Us</a>
+                            <a class="nav-link container-fluid mt-2" href="contact.html">Contact Us</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav">
@@ -51,6 +54,7 @@
                 </div>
             </div>
         </nav>
+<<<<<<< HEAD:Home.html
         <h3 class="text-center text-secondary bg-success-subtle"> Welcome to the Budget Tracker</h3>
         <div id="carouselExample" class="carousel slide bg-success-subtle" data-bs-ride="true">
             <!--data-bs-ride = false prevents auto slide-->
@@ -80,13 +84,36 @@
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
             </button>
+=======
+>>>>>>> 6b206585135bb8b8cc7e3ef0f18f377c05546e1e:budgetSummary.html
 
+        <!-- Weekly Budget information card-->
 
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
+        <div class="card bg-success-subtle mt-3">
+            <div class="card-body">
+            <h4 class="text-center mb-3">Weekly Budget</h4>
+            <p id="addWeeklyBudgetDisplay"></p>
+            <p id="totalIncome"></p>
+            <p id="totalExpenses"></p>
+            <p id="remainingBudget"></p>
+
+            <button class="btn btn-sm btn-danger" id="resetBudgetButton" onclick="resetWeeklyBudget()">
+                Reset
             </button>
         </div>
+        </div>
+
+
+        <!-- Budget information cards -->
+        <div class="card bg-success-subtle mt-3">
+            <div class="card-body">
+            <h4 class="text-center mb-3">Budget Summary</h4>
+            <div id="budgetOutline" class="mt-3"></div>
+        </div>
+        </div>
+
+
+
         <!-- Footer for every page for easy linkage to pages and information -->
         <div class="card bg-success-subtle mt-3">
             <div class="card-body text-center">
@@ -94,9 +121,10 @@
                 <p class="card-title">Budget Tracker</p>
 
                 <!-- Nav links -->
-                <a class="text-black text-decoration-none me-2" href="WebsiteProjectBTracker.html">Budget Outlined</a>
-                <a class="text-black text-decoration-none me-2" href="BTPage2.html">Input Expenses</a>
-                <a class="text-black text-decoration-none" href="BTPage3.html">Contact Us</a>
+                <a class="text-black text-decoration-none me-2" href="index.html">Home</a>
+                <a class="text-black text-decoration-none me-2" href="budgetSummary.html">Budget Summary</a>
+                <a class="text-black text-decoration-none me-2" href="inputBudget.html">Input Budget</a>
+                <a class="text-black text-decoration-none" href="contact.html">Contact Us</a>
 
                 <!-- Horizontal Rule -->
                 <hr>
@@ -107,4 +135,9 @@
             </div>
         </div>
     </div>
+
+    <!-- External Style Sheet -->
+    <script src="js/budgetSummary.js"></script>
 </body>
+
+</html>

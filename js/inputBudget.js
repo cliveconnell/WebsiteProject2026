@@ -1,13 +1,18 @@
+// Author: Clive
+// Description: Created to handle weekly budget input, transaction validation, alerts and storage
+
+// For trim() (Removes spaces from start and end of input field) got help from https://www.w3schools.com/Jsref/jsref_trim_string.asp
+
 /* Validation for Input Budget page field. If the value 
-is incorrect, change the blank <p> to use the inner.html message */
+is incorrect, change the blank <p> to use the innerHTML message */
 document.getElementById("budgetForm").addEventListener("submit", function (event) {
     event.preventDefault();
 
 
     // Get user input values and store warning messages
     let isValid = true;
-    let description = document.getElementById("description").value;
-    let amount = document.getElementById("amount").value;
+    let description = document.getElementById("description").value.trim();
+    let amount = document.getElementById("amount").value.trim();
     let type = document.getElementById("type").value;
 
     let descWarning = document.getElementById("descWarning");
@@ -21,18 +26,27 @@ document.getElementById("budgetForm").addEventListener("submit", function (event
     typeWarning.innerHTML = "";
     successMessage.innerHTML = "";
 
+    // Hides warning using d-none class
+    descWarning.classList.add("d-none");
+    amountWarning.classList.add("d-none");
+    typeWarning.classList.add("d-none");
+    successMessage.classList.add("d-none");
+
 
     // If form fields are blank or not selected show the error message until resolved
     if (description === "") {
         descWarning.innerHTML = "Enter a description.";
+        descWarning.classList.remove("d-none");
         isValid = false;
     }
     if (amount === "" || Number(amount) <= 0) {
         amountWarning.innerHTML = "Enter a valid positive amount.";
+        amountWarning.classList.remove("d-none");
         isValid = false;
     }
     if (type === "") {
-        typeWarning.innerHTML = "Select an option";
+        typeWarning.innerHTML = "Select an option.";
+        typeWarning.classList.remove("d-none");
         isValid = false;
     }
 
@@ -58,14 +72,18 @@ document.getElementById("budgetForm").addEventListener("submit", function (event
         // Save count
         sessionStorage.count = count;
 
-
+        // Shows the success message as Transaction added
         successMessage.innerHTML = "Transaction added!";
+        // Hides warning using d-none class
+        successMessage.classList.remove("d-none");
+
 
         /* Help from https://www.w3schools.com/jsref/met_win_setTimeout.asp
         Resets the form and removes the success message after 2 seconds */
         setTimeout(function () {
             document.getElementById("budgetForm").reset();
             successMessage.innerHTML = "";
+            successMessage.classList.add("d-none");
         }, 2000);
     }
 })
@@ -78,7 +96,7 @@ document.getElementById("addWeeklyBudgetForm").addEventListener("submit", functi
 
 
     // Get user input values and store warning messages
-    let weeklyBudget = document.getElementById("enterBudget").value;
+    let weeklyBudget = document.getElementById("enterBudget").value.trim();
     let addBudgetSuccess = document.getElementById("addBudgetSuccess");
     let addBudgetWarning = document.getElementById("addBudgetWarning");
 
@@ -87,21 +105,28 @@ document.getElementById("addWeeklyBudgetForm").addEventListener("submit", functi
     addBudgetSuccess.innerHTML = "";
     addBudgetWarning.innerHTML = "";
 
+    // Hides warning using d-none class
+    addBudgetSuccess.classList.add("d-none");
+    addBudgetWarning.classList.add("d-none");
+
 
     // If form fields are blank or not selected show the error message until resolved
     if (weeklyBudget === "" || Number(weeklyBudget) <= 0) {
-        addBudgetWarning.innerHTML = "Enter a positve weekly budget";
+        addBudgetWarning.innerHTML = "Enter a positive weekly budget.";
+        addBudgetWarning.classList.remove("d-none");
     } else {
         // Store weekly budget in session storage
         sessionStorage.weeklyBudget = weeklyBudget
 
         // change blank <p> to a success message.
         addBudgetSuccess.innerHTML = "Weekly budget added.";
+        addBudgetSuccess.classList.remove("d-none");
 
         // Clear the form after 2 seconds.
         setTimeout(function () {
             document.getElementById("addWeeklyBudgetForm").reset();
             addBudgetSuccess.innerHTML = "";
+            addBudgetSuccess.classList.add("d-none");
         }, 2000);
 
     }
