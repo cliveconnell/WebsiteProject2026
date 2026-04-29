@@ -136,7 +136,7 @@ function function4(){
 function function5(){
     
     let myUserBudgetOutput = ``;
-    loggedIn = localStorage.getItem("loggedIn") === "false"; // If a user has never logged in set to false
+    loggedIn = localStorage.getItem("loggedIn") === "true"; // If local storage is "true", return true. ELSE return false
     if (loggedIn === true){                                // If a user is logged in, retrieve budgetsArray
         const budgetsArray = JSON.parse(localStorage.getItem("budgetsArray")) || []; // Get array only after user login to ensure it exists and maintain parallel array integrity
         let myBudget = budgetsArray[myIndex];
