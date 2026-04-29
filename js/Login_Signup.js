@@ -1,4 +1,6 @@
+// AUTHOR: KEITH JORDAN
 /* Validate and process Login and Signup information*/
+/* Live updating budget table feature - NOT FINISHED OR FULLY FUNCTIOING*/
 
 submitSignUp.addEventListener("click", function1);  // Complete and works so far
 submitLogin.addEventListener("click", function2); // Checks that username exists and corresponding password matches. 
@@ -114,7 +116,7 @@ function function3(){
     localStorage.removeItem("passwordsArray");
     localStorage.removeItem("budgetsArray");  
 }
-// function4() is EMPTY - for user budget details
+// function4() is NON FUNCTIONING FEATURE - TABLE OF BUDGET TRANSACTIONS - EXPLAINED IN VIDEO
 
 function function4(){
     // NON FUNCTIONING FEATURE - TABLE OF BUDGET TRANSACTIONS - EXPLAINED IN VIDEO
